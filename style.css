@@ -892,17 +892,16 @@ section {
 .clients-grid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
+  gap: 1px;
   border: 1px solid var(--border);
   border-radius: 16px;
   overflow: hidden;
-  background: var(--bg-tertiary);
+  background: var(--border);
 }
 
 .client-cell {
   padding: 1.75rem 1rem;
   text-align: center;
-  border-right: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
   background: var(--bg-tertiary);
   font-family: var(--font-display);
   font-size: 0.82rem;
@@ -921,14 +920,6 @@ section {
 .client-cell:hover {
   color: var(--blue);
   background: var(--blue-soft);
-}
-
-.client-cell:nth-child(6n) {
-  border-right: none;
-}
-
-.client-cell:nth-last-child(-n+6) {
-  border-bottom: none;
 }
 
 /* ── CASES ── */
@@ -1394,14 +1385,6 @@ footer {
   .clients-grid {
     grid-template-columns: repeat(3, 1fr);
   }
-
-  .client-cell:nth-child(6n) {
-    border-right: 1px solid var(--border);
-  }
-
-  .client-cell:nth-child(3n) {
-    border-right: none;
-  }
 }
 
 @media (max-width: 720px) {
@@ -1437,14 +1420,6 @@ footer {
 
   .clients-grid {
     grid-template-columns: repeat(2, 1fr);
-  }
-
-  .client-cell:nth-child(3n) {
-    border-right: 1px solid var(--border);
-  }
-
-  .client-cell:nth-child(2n) {
-    border-right: none;
   }
 }
 
