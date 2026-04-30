@@ -1,0 +1,1380 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digitali · Data & Software Factory</title>
+<style>
+  /* ── Avenir Next con fallback de sistema ── */
+  @font-face {
+    font-family: 'Avenir Next';
+    src: local('Avenir Next'), local('AvenirNext-Regular');
+    font-weight: 400; font-style: normal; font-display: swap;
+  }
+  @font-face {
+    font-family: 'Avenir Next';
+    src: local('Avenir Next Medium'), local('AvenirNext-Medium');
+    font-weight: 500; font-style: normal; font-display: swap;
+  }
+  @font-face {
+    font-family: 'Avenir Next';
+    src: local('Avenir Next Demi Bold'), local('AvenirNext-DemiBold');
+    font-weight: 600; font-style: normal; font-display: swap;
+  }
+  @font-face {
+    font-family: 'Avenir Next';
+    src: local('Avenir Next Bold'), local('AvenirNext-Bold');
+    font-weight: 700; font-style: normal; font-display: swap;
+  }
+  @font-face {
+    font-family: 'Avenir Next';
+    src: local('Avenir Next Heavy'), local('AvenirNext-Heavy');
+    font-weight: 800; font-style: normal; font-display: swap;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  /* ── LIGHT THEME (default) — WCAG AA compliant ── */
+  :root, [data-theme="light"] {
+    --bg-primary: #FAFAF8;
+    --bg-secondary: #F0F0EC;
+    --bg-tertiary: #FFFFFF;
+    --bg-inverse: #0A0A0A;
+    --text-primary: #111111;
+    --text-secondary: #4A4A47;
+    --text-tertiary: #6D6D69;
+    --text-on-inverse: #FAFAF8;
+    --text-on-inverse-faint: rgba(255,255,255,0.75);
+    --border: #D6D6D0;
+    --border-on-inverse: rgba(255,255,255,0.14);
+    --blue: #0046E0;
+    --blue-dark: #0035AD;
+    --blue-soft: #E6EDFF;
+    --nav-bg: rgba(250,250,248,0.94);
+    --card-shadow: 0 20px 60px rgba(0,70,224,0.08);
+    --card-shadow-hover: 0 30px 80px rgba(0,0,0,0.12);
+    --logo-filter: none;
+    --logo-filter-on-dark: brightness(0) invert(1);
+  }
+
+  /* ── DARK THEME — WCAG AA compliant ── */
+  [data-theme="dark"] {
+    --bg-primary: #0D0D0D;
+    --bg-secondary: #161616;
+    --bg-tertiary: #1A1A1A;
+    --bg-inverse: #222222;
+    --text-primary: #F0F0EE;
+    --text-secondary: #B8B8B4;
+    --text-tertiary: #8A8A86;
+    --text-on-inverse: #F0F0EE;
+    --text-on-inverse-faint: rgba(255,255,255,0.7);
+    --border: rgba(255,255,255,0.14);
+    --border-on-inverse: rgba(255,255,255,0.14);
+    --blue: #5A90FF;
+    --blue-dark: #4070E0;
+    --blue-soft: rgba(90,144,255,0.16);
+    --nav-bg: rgba(13,13,13,0.94);
+    --card-shadow: 0 20px 60px rgba(90,144,255,0.1);
+    --card-shadow-hover: 0 30px 80px rgba(0,0,0,0.5);
+    --logo-filter: brightness(0) invert(1);
+    --logo-filter-on-dark: brightness(0) invert(1);
+  }
+
+  :root {
+    --font-display: 'Avenir Next', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    --font-body: 'Avenir Next', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    --nav-h: 72px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-size: 17px;
+    line-height: 1.6;
+    overflow-x: hidden;
+    transition: background 0.4s ease, color 0.4s ease;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    height: var(--nav-h);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 5vw;
+    background: var(--nav-bg);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    transition: background 0.4s ease, border-color 0.4s ease;
+  }
+  .nav-logo {
+    display: flex; align-items: center;
+    text-decoration: none;
+    height: 26px;
+  }
+  .nav-logo img {
+    height: 100%; width: auto;
+    filter: var(--logo-filter);
+    transition: filter 0.4s ease;
+  }
+
+  .nav-links { display: flex; align-items: center; gap: 2.25rem; }
+  .nav-links a {
+    font-size: 0.88rem; font-weight: 500; color: var(--text-secondary);
+    text-decoration: none; letter-spacing: 0.01em;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--blue); }
+  .nav-cta {
+    background: var(--text-primary); color: var(--bg-primary) !important;
+    padding: 0.55rem 1.25rem; border-radius: 100px;
+    font-size: 0.85rem !important;
+    font-weight: 600 !important;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--blue) !important; color: #FFFFFF !important; }
+
+  /* ── THEME TOGGLE ── */
+  .theme-toggle {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    transition: border-color 0.2s, transform 0.4s ease;
+    color: var(--text-primary);
+    padding: 0;
+    flex-shrink: 0;
+  }
+  .theme-toggle:hover { border-color: var(--blue); transform: rotate(20deg); }
+  .theme-toggle svg { width: 18px; height: 18px; }
+  .theme-toggle .icon-moon { display: none; }
+  .theme-toggle .icon-sun { display: block; }
+  [data-theme="dark"] .theme-toggle .icon-moon { display: block; }
+  [data-theme="dark"] .theme-toggle .icon-sun { display: none; }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    padding-top: var(--nav-h);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    overflow: hidden;
+  }
+  .hero-left { padding: 8rem 4rem 6rem 5vw; }
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 0.78rem; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--blue);
+    margin-bottom: 2rem;
+  }
+  .hero-eyebrow::before {
+    content: ''; display: block;
+    width: 24px; height: 2px; background: var(--blue);
+  }
+  .hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 5vw, 5.5rem);
+    font-weight: 800;
+    line-height: 1.0;
+    letter-spacing: -0.025em;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+  }
+  .hero-title em { font-style: normal; color: var(--blue); }
+  .hero-subtitle {
+    font-size: 1.1rem; color: var(--text-secondary);
+    max-width: 420px; line-height: 1.7;
+    margin-bottom: 2.5rem; font-weight: 400;
+  }
+  .hero-actions { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--blue); color: #FFFFFF;
+    padding: 0.9rem 2rem; border-radius: 100px;
+    font-weight: 600; font-size: 0.95rem;
+    text-decoration: none; transition: background 0.2s, transform 0.15s;
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: var(--font-display);
+  }
+  .btn-primary:hover { background: var(--blue-dark); transform: translateY(-1px); }
+  .btn-ghost {
+    color: var(--text-primary); font-weight: 600; font-size: 0.95rem;
+    text-decoration: none; display: inline-flex; align-items: center; gap: 6px;
+    transition: gap 0.2s;
+    font-family: var(--font-display);
+  }
+  .btn-ghost:hover { gap: 10px; }
+
+  .hero-right {
+    position: relative;
+    height: 100vh;
+    background: var(--bg-inverse);
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+    transition: background 0.4s ease;
+  }
+  .hero-graphic { position: relative; width: 340px; height: 340px; }
+  .hero-ring {
+    position: absolute; border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 50%;
+    animation: spin linear infinite;
+  }
+  .hero-ring:nth-child(1) { inset: 0; animation-duration: 20s; }
+  .hero-ring:nth-child(2) { inset: 30px; animation-duration: 28s; animation-direction: reverse; }
+  .hero-ring:nth-child(3) { inset: 60px; animation-duration: 36s; }
+  .hero-center {
+    position: absolute; inset: 90px;
+    background: var(--blue);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .hero-d {
+    font-family: var(--font-display);
+    font-size: 80px; font-weight: 800;
+    color: white; letter-spacing: -0.04em;
+    line-height: 1;
+  }
+  .hero-dot {
+    position: absolute;
+    width: 8px; height: 8px;
+    background: var(--blue);
+    border-radius: 50%;
+    animation: orbit linear infinite;
+  }
+  .hero-dot:nth-child(4) { animation-duration: 8s; top: 0; left: 50%; }
+  .hero-dot:nth-child(5) { animation-duration: 12s; top: 50%; right: 0; animation-delay: -4s; }
+  .hero-stats {
+    position: absolute; bottom: 3rem; left: 3rem; right: 3rem;
+    display: grid; grid-template-columns: repeat(4,1fr); gap: 1px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 16px; overflow: hidden;
+  }
+  .stat-cell {
+    padding: 1.25rem 1rem;
+    background: rgba(255,255,255,0.04);
+    text-align: center;
+  }
+  .stat-num {
+    font-family: var(--font-display);
+    font-size: 1.8rem; font-weight: 800;
+    color: #FAFAF8; line-height: 1;
+    margin-bottom: 0.3rem;
+    letter-spacing: -0.02em;
+  }
+  .stat-num span { color: var(--blue); }
+  .stat-lbl {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.72);
+    letter-spacing: 0.06em; text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  @keyframes spin { to { transform: rotate(360deg); } }
+  @keyframes orbit { to { transform: rotate(360deg) translateX(170px) rotate(-360deg); } }
+
+  /* ── MARQUEE ── */
+  .marquee-wrap {
+    overflow: hidden;
+    background: var(--bg-inverse);
+    padding: 1rem 0;
+    border-top: 1px solid var(--border-on-inverse);
+    border-bottom: 1px solid var(--border-on-inverse);
+    transition: background 0.4s ease;
+  }
+  .marquee-track {
+    display: flex; width: max-content;
+    animation: marquee 22s linear infinite;
+  }
+  .marquee-track:hover { animation-play-state: paused; }
+  .marquee-item {
+    font-family: var(--font-display);
+    font-size: 0.82rem; font-weight: 600;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    padding: 0 2.5rem;
+    white-space: nowrap;
+  }
+  .marquee-item.accent { color: var(--blue); }
+  @keyframes marquee { to { transform: translateX(-50%); } }
+
+  /* ── SECTIONS ── */
+  section { padding: 6rem 5vw; }
+  .section-eyebrow {
+    font-size: 0.75rem; font-weight: 600;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--blue); margin-bottom: 1rem;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .section-eyebrow::before { content: ''; width: 20px; height: 2px; background: var(--blue); }
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 3.5vw, 3.2rem);
+    font-weight: 800; letter-spacing: -0.025em;
+    line-height: 1.1; margin-bottom: 1rem;
+    color: var(--text-primary);
+  }
+  .section-title em { font-style: normal; color: var(--blue); }
+  .section-sub {
+    font-size: 1.05rem; color: var(--text-secondary);
+    max-width: 560px; font-weight: 400; line-height: 1.7;
+  }
+
+  /* ── SERVICES ── */
+  #services { background: var(--bg-primary); transition: background 0.4s ease; }
+  .services-header { margin-bottom: 4rem; }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  .service-card {
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 2.5rem 2rem;
+    background: var(--bg-tertiary);
+    transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s, background 0.4s;
+    position: relative; overflow: hidden;
+  }
+  .service-card::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--blue);
+    transform: scaleX(0);
+    transition: transform 0.3s;
+    transform-origin: left;
+  }
+  .service-card:hover {
+    border-color: var(--blue);
+    transform: translateY(-4px);
+    box-shadow: var(--card-shadow);
+  }
+  .service-card:hover::after { transform: scaleX(1); }
+  .service-num {
+    font-family: var(--font-display);
+    font-size: 0.78rem; font-weight: 700;
+    color: var(--blue); letter-spacing: 0.1em;
+    margin-bottom: 1.5rem;
+  }
+  .service-icon {
+    width: 52px; height: 52px;
+    background: var(--blue-soft);
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    color: var(--blue);
+    font-weight: 700;
+  }
+  .service-name {
+    font-family: var(--font-display);
+    font-size: 1.3rem; font-weight: 700;
+    margin-bottom: 0.75rem; letter-spacing: -0.02em;
+    color: var(--text-primary);
+  }
+  .service-desc {
+    font-size: 0.92rem; color: var(--text-secondary);
+    line-height: 1.65; margin-bottom: 1.5rem; font-weight: 400;
+  }
+  .service-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag {
+    font-size: 0.72rem; font-weight: 500;
+    letter-spacing: 0.04em;
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+    padding: 4px 10px; border-radius: 100px;
+  }
+
+  /* ── HOW ── */
+  #how {
+    background: var(--bg-inverse);
+    transition: background 0.4s ease;
+  }
+  #how .section-title { color: #FAFAF8; }
+  #how .section-sub { color: rgba(250,250,248,0.72); }
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    gap: 0;
+    margin-top: 4rem;
+    border: 1px solid var(--border-on-inverse);
+    border-radius: 20px; overflow: hidden;
+  }
+  .step {
+    padding: 2.5rem 1.5rem;
+    border-right: 1px solid var(--border-on-inverse);
+    transition: background 0.2s;
+  }
+  .step:last-child { border-right: none; }
+  .step:hover { background: rgba(0,80,255,0.06); }
+  [data-theme="dark"] .step:hover { background: rgba(74,133,255,0.08); }
+  .step-num {
+    font-family: var(--font-display);
+    font-size: 2.5rem; font-weight: 800;
+    color: rgba(255,255,255,0.1);
+    line-height: 1; margin-bottom: 1rem;
+    letter-spacing: -0.03em;
+  }
+  .step-name {
+    font-family: var(--font-display);
+    font-size: 0.9rem; font-weight: 700;
+    color: #FAFAF8; margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+  }
+  .step-desc {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.5; font-weight: 400;
+  }
+  .step-accent {
+    height: 3px; background: var(--blue);
+    margin-bottom: 1.5rem; border-radius: 2px;
+    width: 30px;
+  }
+
+  /* ── ACHIEVEMENTS / CLIENTES Y LOGROS (NUEVA) ── */
+  #achievements {
+    background: var(--bg-primary);
+    transition: background 0.4s ease;
+    padding: 7rem 5vw;
+  }
+  .achievements-header {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 4rem; align-items: end;
+    margin-bottom: 5rem;
+  }
+  .achievements-header-right {
+    font-size: 1.05rem; color: var(--text-secondary);
+    line-height: 1.7; max-width: 480px;
+    justify-self: end;
+  }
+
+  /* Grid de números grandes animados */
+  .achievements-numbers {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 5rem;
+  }
+  .achievement-cell {
+    padding: 2rem 1.5rem;
+    border-right: 1px solid var(--border);
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+  }
+  .achievement-cell:last-child { border-right: none; }
+  .achievement-cell::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--blue);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.7s ease;
+  }
+  .achievement-cell.in-view::before { transform: scaleX(1); }
+
+  .achievement-number {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    color: var(--text-primary);
+    margin-bottom: 0.85rem;
+    display: flex; align-items: baseline;
+  }
+  .achievement-number .prefix,
+  .achievement-number .suffix { color: var(--blue); }
+  .achievement-number .num { color: var(--text-primary); }
+  .achievement-label {
+    font-size: 0.78rem;
+    color: var(--text-tertiary);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  /* Highlights grid */
+  .highlights-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 5rem;
+  }
+  .highlight-card {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 2rem;
+    transition: border-color 0.2s, transform 0.2s, background 0.4s;
+  }
+  .highlight-card:hover {
+    border-color: var(--blue);
+    transform: translateY(-3px);
+  }
+  .highlight-icon {
+    width: 44px; height: 44px;
+    background: var(--blue-soft);
+    color: var(--blue);
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1.25rem;
+    font-family: var(--font-display);
+    font-weight: 800; font-size: 1.05rem;
+    letter-spacing: -0.02em;
+  }
+  .highlight-value {
+    font-family: var(--font-display);
+    font-size: 2.2rem; font-weight: 800;
+    color: var(--blue);
+    letter-spacing: -0.03em;
+    margin-bottom: 0.5rem; line-height: 1;
+  }
+  .highlight-text {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.55;
+    font-weight: 400;
+  }
+
+  /* Clients band */
+  .clients-band-title {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  .clients-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    background: var(--bg-tertiary);
+  }
+  .client-cell {
+    padding: 1.75rem 1rem;
+    text-align: center;
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: var(--bg-tertiary);
+    font-family: var(--font-display);
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+    transition: color 0.2s, background 0.2s;
+    cursor: default;
+    display: flex; align-items: center; justify-content: center;
+    min-height: 76px;
+  }
+  .client-cell:hover {
+    color: var(--blue);
+    background: var(--blue-soft);
+  }
+  .client-cell:nth-child(6n) { border-right: none; }
+  .client-cell:nth-last-child(-n+6) { border-bottom: none; }
+
+  /* ── CASES ── */
+  #cases { background: var(--bg-secondary); transition: background 0.4s ease; }
+  .cases-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 1.5rem;
+    margin-top: 3.5rem;
+  }
+  .case-card {
+    border-radius: 20px; overflow: hidden;
+    border: 1px solid var(--border);
+    transition: transform 0.25s, box-shadow 0.25s, background 0.4s;
+    background: var(--bg-tertiary);
+  }
+  .case-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--card-shadow-hover);
+  }
+  .case-header {
+    background: var(--bg-inverse);
+    padding: 2rem 2rem 1.5rem;
+    transition: background 0.4s ease;
+  }
+  .case-industry {
+    font-size: 0.7rem; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--blue); margin-bottom: 0.75rem;
+  }
+  .case-client {
+    font-family: var(--font-display);
+    font-size: 1.4rem; font-weight: 800;
+    color: #FAFAF8;
+    letter-spacing: -0.025em;
+    margin-bottom: 0.5rem;
+  }
+  .case-project {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.72);
+    font-weight: 400;
+  }
+  .case-body { padding: 1.75rem 2rem; }
+  .case-metrics {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1px; background: var(--border);
+    border-radius: 12px; overflow: hidden; margin-bottom: 1.5rem;
+  }
+  .metric {
+    background: var(--bg-secondary);
+    padding: 0.85rem 1rem;
+    text-align: center;
+  }
+  .metric-val {
+    font-family: var(--font-display);
+    font-size: 1.4rem; font-weight: 800;
+    color: var(--blue); line-height: 1;
+    margin-bottom: 0.25rem;
+    letter-spacing: -0.02em;
+  }
+  .metric-lbl {
+    font-size: 0.7rem;
+    color: var(--text-tertiary);
+    letter-spacing: 0.04em; font-weight: 500;
+  }
+  .case-caps { display: flex; flex-wrap: wrap; gap: 6px; }
+  .cap-tag {
+    font-size: 0.7rem; font-weight: 500; letter-spacing: 0.03em;
+    border: 1px solid var(--border);
+    color: var(--text-secondary); padding: 3px 10px; border-radius: 100px;
+  }
+
+  /* ── WHY ── */
+  #why {
+    background: var(--bg-primary);
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 6rem; align-items: center;
+    transition: background 0.4s ease;
+  }
+  .reasons-list { margin-top: 3rem; display: flex; flex-direction: column; gap: 0; }
+  .reason {
+    display: grid; grid-template-columns: 60px 1fr;
+    gap: 1.25rem; align-items: start;
+    padding: 1.75rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .reason:first-child { border-top: 1px solid var(--border); }
+  .reason-num {
+    font-family: var(--font-display);
+    font-size: 0.75rem; font-weight: 700;
+    color: var(--blue); letter-spacing: 0.1em;
+    padding-top: 3px;
+  }
+  .reason-title {
+    font-family: var(--font-display);
+    font-size: 1.05rem; font-weight: 700;
+    margin-bottom: 0.35rem; letter-spacing: -0.015em;
+    color: var(--text-primary);
+  }
+  .reason-desc { font-size: 0.88rem; color: var(--text-secondary); font-weight: 400; line-height: 1.6; }
+  .why-right {
+    background: var(--bg-inverse);
+    border-radius: 24px; padding: 3.5rem;
+    display: flex; flex-direction: column; justify-content: space-between;
+    min-height: 500px;
+    transition: background 0.4s ease;
+  }
+  .quote-mark {
+    font-family: var(--font-display);
+    font-size: 6rem; line-height: 0.8;
+    color: var(--blue); font-weight: 800;
+    margin-bottom: 1.5rem;
+  }
+  .quote-text {
+    font-family: var(--font-display);
+    font-size: 1.6rem; font-weight: 700;
+    color: #FAFAF8; line-height: 1.3;
+    letter-spacing: -0.02em;
+  }
+  .quote-source {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.65);
+    font-weight: 500; margin-top: 2rem;
+    letter-spacing: 0.06em; text-transform: uppercase;
+  }
+  .why-numbers {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1px; background: rgba(255,255,255,0.08);
+    border-radius: 16px; overflow: hidden; margin-top: 2rem;
+  }
+  .why-num-cell {
+    background: rgba(255,255,255,0.04);
+    padding: 1.25rem;
+    text-align: center;
+  }
+  .why-num-val {
+    font-family: var(--font-display);
+    font-size: 2rem; font-weight: 800;
+    color: #FAFAF8; line-height: 1;
+    margin-bottom: 0.25rem;
+    letter-spacing: -0.03em;
+  }
+  .why-num-val span { color: var(--blue); }
+  .why-num-lbl { font-size: 0.7rem; color: rgba(255,255,255,0.68); letter-spacing: 0.04em; font-weight: 500; }
+
+  /* ── CTA ── */
+  #cta {
+    background: var(--blue);
+    padding: 8rem 5vw;
+    text-align: center;
+    position: relative; overflow: hidden;
+  }
+  #cta::before {
+    content: 'D';
+    position: absolute;
+    font-family: var(--font-display);
+    font-size: 40vw; font-weight: 800;
+    color: rgba(255,255,255,0.04);
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    line-height: 1;
+    pointer-events: none;
+  }
+  #cta .section-title { color: #FFFFFF; position: relative; }
+  #cta .section-sub { color: rgba(255,255,255,0.75); margin: 0 auto 3rem; position: relative; }
+  .btn-white {
+    background: #FFFFFF; color: var(--blue);
+    padding: 1rem 2.5rem; border-radius: 100px;
+    font-weight: 600; font-size: 1rem;
+    text-decoration: none; display: inline-flex;
+    align-items: center; gap: 8px;
+    transition: transform 0.15s, box-shadow 0.15s;
+    position: relative;
+    font-family: var(--font-display);
+  }
+  .btn-white:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(0,0,0,0.2); }
+  .cta-contacts {
+    display: flex; justify-content: center; gap: 3rem;
+    margin-top: 3.5rem; flex-wrap: wrap;
+    position: relative;
+  }
+  .contact-person {
+    text-align: left;
+    background: rgba(255,255,255,0.12);
+    border-radius: 16px; padding: 1.25rem 1.75rem;
+    min-width: 240px;
+  }
+  .contact-name {
+    font-family: var(--font-display);
+    font-size: 1rem; font-weight: 700; color: #FFFFFF;
+    margin-bottom: 0.25rem;
+  }
+  .contact-info { font-size: 0.82rem; color: rgba(255,255,255,0.7); font-weight: 400; }
+  .contact-info a { color: rgba(255,255,255,0.9); text-decoration: none; }
+  .contact-info a:hover { color: #FFFFFF; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--bg-inverse);
+    color: rgba(255,255,255,0.68);
+    padding: 2rem 5vw;
+    display: flex; align-items: center; justify-content: space-between;
+    font-size: 0.8rem;
+    transition: background 0.4s ease;
+    flex-wrap: wrap; gap: 1rem;
+  }
+  .footer-logo { height: 22px; display: flex; align-items: center; }
+  .footer-logo img {
+    height: 100%; width: auto;
+    filter: var(--logo-filter-on-dark);
+  }
+
+  /* ── ANIMATIONS ── */
+  .reveal {
+    opacity: 0; transform: translateY(24px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1100px) {
+    .nav-links { gap: 1.5rem; }
+  }
+  @media (max-width: 1024px) {
+    #hero { grid-template-columns: 1fr; }
+    .hero-right { display: none; }
+    .hero-left { padding: 6rem 5vw 4rem; }
+    .services-grid { grid-template-columns: 1fr 1fr; }
+    .steps-grid { grid-template-columns: repeat(3,1fr); }
+    .step:nth-child(3) { border-right: none; }
+    .step:nth-child(4),
+    .step:nth-child(5) { border-top: 1px solid var(--border-on-inverse); }
+    #why { grid-template-columns: 1fr; gap: 3rem; }
+    .cases-grid { grid-template-columns: 1fr 1fr; }
+    .achievements-header { grid-template-columns: 1fr; gap: 2rem; }
+    .achievements-header-right { justify-self: start; }
+    .achievements-numbers { grid-template-columns: 1fr 1fr; }
+    .achievement-cell:nth-child(2) { border-right: none; }
+    .achievement-cell:nth-child(1),
+    .achievement-cell:nth-child(2) { border-bottom: 1px solid var(--border); }
+    .highlights-grid { grid-template-columns: 1fr; }
+    .clients-grid { grid-template-columns: repeat(3, 1fr); }
+    .client-cell:nth-child(6n) { border-right: 1px solid var(--border); }
+    .client-cell:nth-child(3n) { border-right: none; }
+  }
+  @media (max-width: 720px) {
+    .nav-links a:not(.nav-cta) { display: none; }
+    .services-grid, .cases-grid { grid-template-columns: 1fr; }
+    .steps-grid { grid-template-columns: 1fr 1fr; }
+    .step:nth-child(2n) { border-right: none; }
+    .achievements-numbers { grid-template-columns: 1fr; }
+    .achievement-cell { border-right: none; border-bottom: 1px solid var(--border); }
+    .achievement-cell:last-child { border-bottom: none; }
+    .clients-grid { grid-template-columns: repeat(2, 1fr); }
+    .client-cell:nth-child(3n) { border-right: 1px solid var(--border); }
+    .client-cell:nth-child(2n) { border-right: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <img src="digitali-logo.svg" alt="Digitali">
+  </a>
+  <div class="nav-links">
+    <a href="#services">Servicios</a>
+    <a href="#achievements">Clientes</a>
+    <a href="#cases">Casos</a>
+    <a href="#why">Por qué elegirnos</a>
+    <a href="#cta" class="nav-cta">Hablemos →</a>
+    <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Data &amp; Software Factory · Desde 2016</div>
+    <h1 class="hero-title">
+      Tecnología<br>que <em>resuelve.</em><br>Resultados<br>que se miden.
+    </h1>
+    <p class="hero-subtitle">
+      Construimos plataformas de datos, productos digitales e inteligencia artificial para empresas que quieren impacto real — no promesas.
+    </p>
+    <div class="hero-actions">
+      <a href="#cta" class="btn-primary">Iniciar proyecto →</a>
+      <a href="#cases" class="btn-ghost">Ver casos de éxito ↓</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-graphic">
+      <div class="hero-ring"></div>
+      <div class="hero-ring"></div>
+      <div class="hero-ring"></div>
+      <div class="hero-center"><div class="hero-d">D</div></div>
+      <div class="hero-dot"></div>
+      <div class="hero-dot"></div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-cell">
+        <div class="stat-num"><span data-count="9" data-suffix="+">0</span></div>
+        <div class="stat-lbl">Años</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num"><span data-count="120" data-suffix="+">0</span></div>
+        <div class="stat-lbl">Proyectos</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num"><span data-count="25" data-suffix="+">0</span></div>
+        <div class="stat-lbl">Seniors</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num"><span data-count="95" data-suffix="%">0</span></div>
+        <div class="stat-lbl">NPS</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span class="marquee-item accent">· Datos</span>
+    <span class="marquee-item">Data Strategy</span>
+    <span class="marquee-item">Data Factory</span>
+    <span class="marquee-item accent">· IA</span>
+    <span class="marquee-item">Machine Learning</span>
+    <span class="marquee-item">GenAI</span>
+    <span class="marquee-item accent">· Software</span>
+    <span class="marquee-item">Full-Stack</span>
+    <span class="marquee-item">DevOps</span>
+    <span class="marquee-item">Agile</span>
+    <span class="marquee-item accent">· Cloud</span>
+    <span class="marquee-item">Databricks</span>
+    <span class="marquee-item">Snowflake</span>
+    <span class="marquee-item">AWS</span>
+    <span class="marquee-item">Azure</span>
+    <span class="marquee-item">GCP</span>
+    <span class="marquee-item accent">· Datos</span>
+    <span class="marquee-item">Data Strategy</span>
+    <span class="marquee-item">Data Factory</span>
+    <span class="marquee-item accent">· IA</span>
+    <span class="marquee-item">Machine Learning</span>
+    <span class="marquee-item">GenAI</span>
+    <span class="marquee-item accent">· Software</span>
+    <span class="marquee-item">Full-Stack</span>
+    <span class="marquee-item">DevOps</span>
+    <span class="marquee-item">Agile</span>
+    <span class="marquee-item accent">· Cloud</span>
+    <span class="marquee-item">Databricks</span>
+    <span class="marquee-item">Snowflake</span>
+    <span class="marquee-item">AWS</span>
+    <span class="marquee-item">Azure</span>
+    <span class="marquee-item">GCP</span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-header reveal">
+    <div class="section-eyebrow">Servicios</div>
+    <h2 class="section-title">Tres verticales,<br><em>un solo equipo.</em></h2>
+    <p class="section-sub">Capacidades end-to-end para que el dato y el software sean activos estratégicos de tu empresa.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card reveal reveal-delay-1">
+      <div class="service-num">01</div>
+      <div class="service-icon">◈</div>
+      <div class="service-name">Datos</div>
+      <p class="service-desc">Arquitecturas modernas para la gestión eficiente de datos. Desde la estrategia hasta la calidad y gobierno.</p>
+      <div class="service-tags">
+        <span class="tag">Data Strategy</span>
+        <span class="tag">Data Factory</span>
+        <span class="tag">Governance</span>
+        <span class="tag">Data Quality</span>
+        <span class="tag">Advanced Analytics</span>
+      </div>
+    </div>
+    <div class="service-card reveal reveal-delay-2">
+      <div class="service-num">02</div>
+      <div class="service-icon">◉</div>
+      <div class="service-name">Inteligencia Artificial</div>
+      <p class="service-desc">IA aplicada para automatizar, predecir y ganar ventaja competitiva. ML, GenAI y agentes inteligentes.</p>
+      <div class="service-tags">
+        <span class="tag">Modelos ML</span>
+        <span class="tag">GenAI</span>
+        <span class="tag">Automatización</span>
+        <span class="tag">Agentes IA</span>
+        <span class="tag">NLP</span>
+      </div>
+    </div>
+    <div class="service-card reveal reveal-delay-3">
+      <div class="service-num">03</div>
+      <div class="service-icon">◧</div>
+      <div class="service-name">Software Factory</div>
+      <p class="service-desc">Productos digitales a medida con foco en escalabilidad y UX. Equipos ágiles integrados como extensión de tu empresa.</p>
+      <div class="service-tags">
+        <span class="tag">Full-Stack</span>
+        <span class="tag">Equipos ágiles</span>
+        <span class="tag">DevOps & QA</span>
+        <span class="tag">Modernización</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW -->
+<section id="how">
+  <div class="reveal">
+    <div class="section-eyebrow">Metodología</div>
+    <h2 class="section-title">Cómo lo <em>hacemos.</em></h2>
+    <p class="section-sub">Seis etapas ágiles. Entregas cada 2 semanas. Validación continua contigo en cada paso.</p>
+  </div>
+  <div class="steps-grid reveal">
+    <div class="step">
+      <div class="step-accent"></div>
+      <div class="step-num">01</div>
+      <div class="step-name">Descubrimiento</div>
+      <p class="step-desc">Entendemos el problema y definimos el alcance real.</p>
+    </div>
+    <div class="step">
+      <div class="step-accent"></div>
+      <div class="step-num">02</div>
+      <div class="step-name">Exploración &amp; Diseño</div>
+      <p class="step-desc">Arquitectura y UX antes de escribir una línea de código.</p>
+    </div>
+    <div class="step">
+      <div class="step-accent"></div>
+      <div class="step-num">03</div>
+      <div class="step-name">Planificación Ágil</div>
+      <p class="step-desc">Roadmap priorizado por valor de negocio.</p>
+    </div>
+    <div class="step">
+      <div class="step-accent"></div>
+      <div class="step-num">04</div>
+      <div class="step-name">Construcción</div>
+      <p class="step-desc">Sprints de 2 semanas con demos reales.</p>
+    </div>
+    <div class="step">
+      <div class="step-accent"></div>
+      <div class="step-num">05</div>
+      <div class="step-name">Despliegue</div>
+      <p class="step-desc">Go-live con acompañamiento y monitoreo proactivo.</p>
+    </div>
+    <div class="step">
+      <div class="step-accent"></div>
+      <div class="step-num">06</div>
+      <div class="step-name">Evolución continua</div>
+      <p class="step-desc">Mejora iterativa post-lanzamiento. Somos tu equipo.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS / CLIENTES Y LOGROS -->
+<section id="achievements">
+  <div class="achievements-header">
+    <div class="reveal">
+      <div class="section-eyebrow">Clientes &amp; Logros</div>
+      <h2 class="section-title">Resultados que <em>hablan<br>por nosotros.</em></h2>
+    </div>
+    <div class="achievements-header-right reveal reveal-delay-1">
+      Cada número representa un equipo que confió, un proceso que funcionó y un negocio que avanzó. Hemos trabajado con empresas líderes en banca, energía, logística, seguros e industria.
+    </div>
+  </div>
+
+  <!-- Números grandes animados -->
+  <div class="achievements-numbers">
+    <div class="achievement-cell" data-animate>
+      <div class="achievement-number">
+        <span class="prefix">+$</span><span class="num" data-count="300">0</span><span class="suffix">MM</span>
+      </div>
+      <div class="achievement-label">USD en valor generado<br>para nuestros clientes</div>
+    </div>
+    <div class="achievement-cell" data-animate>
+      <div class="achievement-number">
+        <span class="prefix">−</span><span class="num" data-count="35">0</span><span class="suffix">%</span>
+      </div>
+      <div class="achievement-label">Costo promedio<br>de operación reducido</div>
+    </div>
+    <div class="achievement-cell" data-animate>
+      <div class="achievement-number">
+        <span class="num" data-count="4">0</span><span class="suffix">×</span>
+      </div>
+      <div class="achievement-label">Aceleración promedio<br>en procesos de negocio</div>
+    </div>
+    <div class="achievement-cell" data-animate>
+      <div class="achievement-number">
+        <span class="num" data-count="99" data-decimal="9">0</span><span class="suffix">%</span>
+      </div>
+      <div class="achievement-label">Uptime promedio<br>en plataformas críticas</div>
+    </div>
+  </div>
+
+  <!-- Highlights cards -->
+  <div class="highlights-grid">
+    <div class="highlight-card reveal">
+      <div class="highlight-icon">01</div>
+      <div class="highlight-value"><span data-count="120" data-suffix="+">0</span></div>
+      <p class="highlight-text">Proyectos entregados con resultados medibles en industrias reguladas y de alta complejidad operacional.</p>
+    </div>
+    <div class="highlight-card reveal reveal-delay-1">
+      <div class="highlight-icon">02</div>
+      <div class="highlight-value"><span data-count="30" data-suffix="+">0</span></div>
+      <p class="highlight-text">Clientes activos que escalan con nosotros como partner tecnológico de largo plazo.</p>
+    </div>
+    <div class="highlight-card reveal reveal-delay-2">
+      <div class="highlight-icon">03</div>
+      <div class="highlight-value"><span data-count="120" data-suffix="+">0</span></div>
+      <p class="highlight-text">Modelos de IA en producción generando valor diariamente para empresas en operación real.</p>
+    </div>
+  </div>
+
+  <!-- Clients band -->
+  <div class="clients-band-title">Empresas que confían en Digitali</div>
+  <div class="clients-grid">
+    <div class="client-cell">Banco de Chile</div>
+    <div class="client-cell">Colbún</div>
+    <div class="client-cell">Consorcio</div>
+    <div class="client-cell">Confuturo</div>
+    <div class="client-cell">DHL</div>
+    <div class="client-cell">Gourmet</div>
+    <div class="client-cell">BAIC Latam</div>
+    <div class="client-cell">Magna</div>
+    <div class="client-cell">Gatex</div>
+    <div class="client-cell">Global</div>
+    <div class="client-cell">Betterfly</div>
+    <div class="client-cell">HDI</div>
+  </div>
+</section>
+
+<!-- CASES -->
+<section id="cases">
+  <div class="reveal">
+    <div class="section-eyebrow">Casos de éxito</div>
+    <h2 class="section-title">Proyectos que <em>marcan diferencia.</em></h2>
+    <p class="section-sub">Una muestra de los proyectos que han transformado operaciones, decisiones y negocios.</p>
+  </div>
+  <div class="cases-grid">
+    <div class="case-card reveal reveal-delay-1">
+      <div class="case-header">
+        <div class="case-industry">Banca · Datos y Software</div>
+        <div class="case-client">Banco de Chile</div>
+        <div class="case-project">Plataforma de riesgo moderna — +2,7M clientes</div>
+      </div>
+      <div class="case-body">
+        <div class="case-metrics">
+          <div class="metric"><div class="metric-val">−65%</div><div class="metric-lbl">tiempo proceso riesgo</div></div>
+          <div class="metric"><div class="metric-val">$2.1M</div><div class="metric-lbl">USD ahorro anual</div></div>
+          <div class="metric"><div class="metric-val">99.95%</div><div class="metric-lbl">disponibilidad</div></div>
+          <div class="metric"><div class="metric-val">+12</div><div class="metric-lbl">dominios gobernados</div></div>
+        </div>
+        <div class="case-caps">
+          <span class="cap-tag">Data Strategy</span>
+          <span class="cap-tag">Data Factory</span>
+          <span class="cap-tag">GenIA</span>
+          <span class="cap-tag">Data Quality</span>
+        </div>
+      </div>
+    </div>
+    <div class="case-card reveal reveal-delay-2">
+      <div class="case-header">
+        <div class="case-industry">Logística · Datos + IA</div>
+        <div class="case-client">DHL</div>
+        <div class="case-project">Optimización procesos de internación — 220 países</div>
+      </div>
+      <div class="case-body">
+        <div class="case-metrics">
+          <div class="metric"><div class="metric-val">−32%</div><div class="metric-lbl">quiebres de stock</div></div>
+          <div class="metric"><div class="metric-val">+14%</div><div class="metric-lbl">margen con clientes</div></div>
+          <div class="metric"><div class="metric-val">−19%</div><div class="metric-lbl">tiempos end-to-end</div></div>
+          <div class="metric"><div class="metric-val">2 días</div><div class="metric-lbl">mejora promedio</div></div>
+        </div>
+        <div class="case-caps">
+          <span class="cap-tag">Advanced Analytics</span>
+          <span class="cap-tag">GenIA</span>
+          <span class="cap-tag">Software Factory</span>
+        </div>
+      </div>
+    </div>
+    <div class="case-card reveal reveal-delay-3">
+      <div class="case-header">
+        <div class="case-industry">Energía · Datos</div>
+        <div class="case-client">Colbún</div>
+        <div class="case-project">Gobierno de datos y estrategia — +25 centrales</div>
+      </div>
+      <div class="case-body">
+        <div class="case-metrics">
+          <div class="metric"><div class="metric-val">+35%</div><div class="metric-lbl">calidad de datos</div></div>
+          <div class="metric"><div class="metric-val">+50%</div><div class="metric-lbl">activos gobernados</div></div>
+          <div class="metric"><div class="metric-val">−40%</div><div class="metric-lbl">tiempo acceso info</div></div>
+          <div class="metric"><div class="metric-val">−30%</div><div class="metric-lbl">incidencias datos</div></div>
+        </div>
+        <div class="case-caps">
+          <span class="cap-tag">Data Strategy</span>
+          <span class="cap-tag">Data Governance</span>
+          <span class="cap-tag">Data Quality</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section id="why">
+  <div class="why-left">
+    <div class="section-eyebrow reveal">Por qué elegirnos</div>
+    <h2 class="section-title reveal">No entregamos<br>proyectos.<br><em>Construimos<br>resultados.</em></h2>
+    <div class="reasons-list">
+      <div class="reason reveal">
+        <div class="reason-num">01</div>
+        <div>
+          <div class="reason-title">Experiencia real en terreno</div>
+          <p class="reason-desc">Líderes con más de 10 años en proyectos de impacto real en banca, retail, energía y minería.</p>
+        </div>
+      </div>
+      <div class="reason reveal reveal-delay-1">
+        <div class="reason-num">02</div>
+        <div>
+          <div class="reason-title">Hands-on, no solo slides</div>
+          <p class="reason-desc">Equipos senior que ejecutan. No consultores que recomiendan y se van.</p>
+        </div>
+      </div>
+      <div class="reason reveal reveal-delay-2">
+        <div class="reason-num">03</div>
+        <div>
+          <div class="reason-title">Foco en el negocio</div>
+          <p class="reason-desc">Todo se mide por el valor que desbloquea para tu empresa. La tecnología es el medio, no el fin.</p>
+        </div>
+      </div>
+      <div class="reason reveal reveal-delay-3">
+        <div class="reason-num">04</div>
+        <div>
+          <div class="reason-title">Partner de largo plazo</div>
+          <p class="reason-desc">Acompañamos la evolución de tu producto, no solo el go-live. Somos tu equipo extendido.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="why-right reveal">
+    <div>
+      <div class="quote-mark">"</div>
+      <div class="quote-text">Resolver problemas complejos con soluciones simples, útiles y bien hechas.</div>
+      <div class="quote-source">Nuestro código · Digitali</div>
+    </div>
+    <div class="why-numbers">
+      <div class="why-num-cell">
+        <div class="why-num-val">+$300<span>MM</span></div>
+        <div class="why-num-lbl">USD en valor</div>
+      </div>
+      <div class="why-num-cell">
+        <div class="why-num-val">4<span>×</span></div>
+        <div class="why-num-lbl">aceleración</div>
+      </div>
+      <div class="why-num-cell">
+        <div class="why-num-val">−35<span>%</span></div>
+        <div class="why-num-lbl">costo operación</div>
+      </div>
+      <div class="why-num-cell">
+        <div class="why-num-val">+120</div>
+        <div class="why-num-lbl">modelos en prod</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <h2 class="section-title">Hagamos algo<br>que funcione.</h2>
+  <p class="section-sub">Conversemos sobre tu desafío. Sin compromiso, con foco en resultados.</p>
+  <a href="mailto:cristian.gonzalezh@digitali.cl" class="btn-white">Agendar conversación →</a>
+  <div class="cta-contacts">
+    <div class="contact-person">
+      <div class="contact-name">Cristian González Holuigue</div>
+      <div class="contact-info">
+        <a href="mailto:cristian.gonzalezh@digitali.cl">cristian.gonzalezh@digitali.cl</a><br>
+        +56 9 9195 1159
+      </div>
+    </div>
+    <div class="contact-person">
+      <div class="contact-name">Humberto Ramírez Miranda</div>
+      <div class="contact-info">
+        <a href="mailto:humberto.ramirez@digitali.cl">humberto.ramirez@digitali.cl</a><br>
+        +56 9 9249 7648
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo"><img src="digitali-logo.svg" alt="Digitali"></div>
+  <div>digitali.cl · Santiago, Chile · Data &amp; Software Factory desde 2016</div>
+  <div>© 2026 Digitali</div>
+</footer>
+
+<script>
+  // ── THEME TOGGLE ──
+  const themeToggle = document.getElementById('themeToggle');
+  const html = document.documentElement;
+  try {
+    const savedTheme = localStorage.getItem('digitali-theme');
+    if (savedTheme) html.setAttribute('data-theme', savedTheme);
+  } catch(e) {}
+  themeToggle.addEventListener('click', () => {
+    const current = html.getAttribute('data-theme');
+    const next = current === 'light' ? 'dark' : 'light';
+    html.setAttribute('data-theme', next);
+    try { localStorage.setItem('digitali-theme', next); } catch(e) {}
+  });
+
+  // ── REVEAL ON SCROLL ──
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        revealObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+  // ── COUNT-UP ANIMATION ──
+  function easeOutCubic(t) { return 1 - Math.pow(1 - t, 3); }
+
+  function animateNumber(el, duration) {
+    duration = duration || 1800;
+    if (el.dataset.animated === 'true') return;
+    el.dataset.animated = 'true';
+
+    const target = parseFloat(el.getAttribute('data-count'));
+    const decimal = el.getAttribute('data-decimal');
+    const suffix = el.getAttribute('data-suffix') || '';
+    const start = performance.now();
+
+    function tick(now) {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = easeOutCubic(progress);
+      const current = Math.floor(target * eased);
+
+      if (progress < 1) {
+        el.textContent = current + suffix;
+        requestAnimationFrame(tick);
+      } else {
+        // Valor final exacto
+        if (decimal !== null && decimal !== undefined && decimal !== '') {
+          el.textContent = target + '.' + decimal + suffix;
+        } else {
+          el.textContent = target + suffix;
+        }
+      }
+    }
+    requestAnimationFrame(tick);
+  }
+
+  const countObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        if (e.target.hasAttribute('data-animate')) {
+          // Achievement cell: activar barra azul + animar números internos
+          e.target.classList.add('in-view');
+          e.target.querySelectorAll('[data-count]').forEach(num => animateNumber(num));
+        } else if (e.target.hasAttribute('data-count')) {
+          animateNumber(e.target);
+        }
+        countObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.4 });
+
+  // Observar achievement cells (manejan sus números internos)
+  document.querySelectorAll('[data-animate]').forEach(el => countObserver.observe(el));
+
+  // Observar números standalone (que no están dentro de un .achievement-cell)
+  document.querySelectorAll('[data-count]').forEach(el => {
+    if (!el.closest('[data-animate]')) {
+      countObserver.observe(el);
+    }
+  });
+</script>
+</body>
+</html>
