@@ -69,6 +69,7 @@
   --card-shadow-hover: 0 30px 80px rgba(0, 0, 0, 0.12);
   --logo-filter: none;
   --logo-filter-on-dark: brightness(0) invert(1);
+  --white: #FFFFFF;
 }
 
 /* ── DARK THEME — WCAG AA compliant ── */
@@ -92,6 +93,7 @@
   --card-shadow-hover: 0 30px 80px rgba(0, 0, 0, 0.5);
   --logo-filter: brightness(0) invert(1);
   --logo-filter-on-dark: brightness(0) invert(1);
+  --white: #FFFFFF;
 }
 
 :root {
@@ -444,7 +446,7 @@ nav {
 }
 
 .stat-num span {
-  color: var(--blue);
+  color: var(--white);
 }
 
 .stat-lbl {
