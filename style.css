@@ -233,7 +233,7 @@ nav {
 
 /* ── HERO ── */
 #hero {
-  height: 100vh;
+  height: 960px;
   min-height: 100vh;
   padding: var(--nav-h) 0 0 0;
   display: grid;
