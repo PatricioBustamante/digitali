@@ -233,8 +233,8 @@ nav {
 
 /* ── HERO ── */
 #hero {
-  height: 960px;
-  min-height: 100vh;
+  height: 800px;
+  ;
   padding: var(--nav-h) 0 0 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
