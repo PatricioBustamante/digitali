@@ -22,7 +22,24 @@
       <a href="#cases">Casos</a>
       <a href="#why">Por qué elegirnos</a>
       <a href="#cta" class="nav-cta">Hablemos →</a>
-      <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">
+      <button class="hamburger" id="navToggle" aria-label="Abrir menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-links">
+      <a href="#services">Servicios</a>
+      <a href="#achievements">Clientes</a>
+      <a href="#cases">Casos</a>
+      <a href="#why">Por qué elegirnos</a>
+    </div>
+    <div class="mobile-menu-footer">
+      <a href="#cta" class="nav-cta">Hablemos →</a>
+      <button class="theme-toggle" id="themeToggleMobile" aria-label="Cambiar tema">
         <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
           stroke-linecap="round" stroke-linejoin="round">
           <circle cx="12" cy="12" r="4" />
@@ -35,7 +52,7 @@
         </svg>
       </button>
     </div>
-  </nav>
+  </div>
 
   <!-- HERO -->
   <section id="hero" class="hero-banner">
@@ -515,16 +532,40 @@
   <script>
     // ── THEME TOGGLE ──
     const themeToggle = document.getElementById('themeToggle');
+    const themeToggleMobile = document.getElementById('themeToggleMobile');
     const html = document.documentElement;
     try {
       const savedTheme = localStorage.getItem('digitali-theme');
       if (savedTheme) html.setAttribute('data-theme', savedTheme);
     } catch (e) { }
-    themeToggle.addEventListener('click', () => {
+
+    function toggleTheme() {
       const current = html.getAttribute('data-theme');
       const next = current === 'light' ? 'dark' : 'light';
       html.setAttribute('data-theme', next);
       try { localStorage.setItem('digitali-theme', next); } catch (e) { }
+    }
+
+    if (themeToggle) themeToggle.addEventListener('click', toggleTheme);
+    if (themeToggleMobile) themeToggleMobile.addEventListener('click', toggleTheme);
+
+    // ── MOBILE MENU ──
+    const navToggle = document.getElementById('navToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileLinks = document.querySelectorAll('.mobile-menu-links a');
+
+    function closeMenu() {
+      navToggle.classList.remove('active');
+      mobileMenu.classList.remove('active');
+    }
+
+    navToggle.addEventListener('click', () => {
+      navToggle.classList.toggle('active');
+      mobileMenu.classList.toggle('active');
+    });
+
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', closeMenu);
     });
 
     // ── REVEAL ON SCROLL ──
