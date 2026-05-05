@@ -1536,7 +1536,7 @@ footer {
 
 @media (max-width: 480px) {
   section {
-    padding: 2rem 5vw;
+    padding: 3rem 5vw;
   }
 
   .hero-left {
