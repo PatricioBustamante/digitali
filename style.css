@@ -105,6 +105,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: var(--nav-h);
 }
 
 body {
@@ -849,7 +850,6 @@ section {
 #achievements {
   background: var(--bg-primary);
   transition: background 0.4s ease;
-  padding: 7rem 5vw;
 }
 
 .achievements-header {
@@ -1536,7 +1536,7 @@ footer {
 
 @media (max-width: 480px) {
   section {
-    padding: 4rem 5vw;
+    padding: 2rem 5vw;
   }
 
   .hero-left {
