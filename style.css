@@ -234,12 +234,13 @@ nav {
 
 /* ── HERO ── */
 #hero {
-  min-height: 800px;
+  height: 100vh;
+  min-height: 100vh;
   padding: var(--nav-h) 0 0 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: stretch;
-  overflow: hidden;
+  overflow: visible; /* Changed to allow content to show if it still exceeds height */
 }
 
 .hero-banner {
@@ -1485,5 +1486,34 @@ footer {
 
   .nav-logo img {
     height: 20px;
+  }
+}
+
+@media (max-height: 858px) and (min-width: 1025px) {
+  .hero-left {
+    padding: 3rem 4rem 3rem 5vw;
+  }
+  
+  .hero-title {
+    font-size: 2.8rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-subtitle {
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-stats {
+    bottom: 1.5rem;
+    left: 1.5rem;
+    right: 1.5rem;
+  }
+
+  .stat-cell {
+    padding: 0.75rem 0.5rem;
+  }
+
+  .stat-num {
+    font-size: 1.4rem;
   }
 }
