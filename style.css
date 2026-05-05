@@ -85,7 +85,8 @@
   --text-on-inverse-faint: rgba(255, 255, 255, 0.7);
   --border: rgba(255, 255, 255, 0.14);
   --border-on-inverse: rgba(255, 255, 255, 0.14);
-  --blue: #5A90FF;
+  /* --blue: #5A90FF;*/
+  --blue: #236cff;
   --blue-dark: #4070E0;
   --blue-soft: rgba(90, 144, 255, 0.16);
   --nav-bg: rgba(13, 13, 13, 0.94);
@@ -493,7 +494,7 @@ nav {
 
 .marquee-item {
   font-family: var(--font-display);
-  font-size: rem;
+  font-size: 1rem;
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
