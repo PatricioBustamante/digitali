@@ -69,6 +69,9 @@
   --card-shadow-hover: 0 30px 80px rgba(0, 0, 0, 0.12);
   --logo-filter: none;
   --logo-filter-on-dark: brightness(0) invert(1);
+  --client-logo-filter: grayscale(1) opacity(0.5);
+  --client-logo-filter-hover: grayscale(0) opacity(1);
+  --client-logo-blend: multiply;
   --white: #FFFFFF;
 }
 
@@ -94,6 +97,9 @@
   --card-shadow-hover: 0 30px 80px rgba(0, 0, 0, 0.5);
   --logo-filter: brightness(0) invert(1);
   --logo-filter-on-dark: brightness(0) invert(1);
+  --client-logo-filter: grayscale(1) brightness(3) opacity(0.4);
+  --client-logo-filter-hover: grayscale(0) opacity(1);
+  --client-logo-blend: screen;
   --white: #FFFFFF;
 }
 
@@ -720,12 +726,24 @@ section {
 }
 
 .service-num {
+  position: absolute;
+  bottom: -1.5rem;
+  right: -0.5rem;
   font-family: var(--font-display);
-  font-size: 1rem;
-  font-weight: 700;
+  font-size: 13rem;
+  font-weight: 900;
   color: var(--blue);
-  letter-spacing: 0.1em;
-  margin-bottom: 1.5rem;
+  opacity: 0.08;
+  letter-spacing: -0.06em;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  transition: opacity 0.3s;
+}
+
+.service-card:hover .service-num {
+  opacity: 0.14;
 }
 
 .service-icon {
@@ -740,6 +758,8 @@ section {
   font-size: 1.5rem;
   color: var(--blue);
   font-weight: 700;
+  position: relative;
+  z-index: 1;
 }
 
 .service-name {
@@ -749,6 +769,8 @@ section {
   margin-bottom: 0.75rem;
   letter-spacing: -0.02em;
   color: var(--text-primary);
+  position: relative;
+  z-index: 1;
 }
 
 .service-desc {
@@ -756,12 +778,16 @@ section {
   line-height: 1.65;
   margin-bottom: 1.5rem;
   font-weight: 400;
+  position: relative;
+  z-index: 1;
 }
 
 .service-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
+  position: relative;
+  z-index: 1;
 }
 
 .tag {
@@ -943,6 +969,7 @@ section {
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
   margin-bottom: 5rem;
+  overflow: visible;
 }
 
 .highlight-card {
@@ -950,28 +977,77 @@ section {
   border: 1px solid var(--border);
   border-radius: 20px;
   padding: 2rem;
-  transition: border-color 0.2s, transform 0.2s, background 0.4s;
+  transition: border-color 0.3s, transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease, background 0.4s;
+  position: relative;
+  overflow: hidden;
+}
+
+.highlight-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--blue-soft) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.highlight-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 55%;
+  height: 100%;
+  background: linear-gradient(
+    105deg,
+    transparent 25%,
+    rgba(255, 255, 255, 0.07) 50%,
+    transparent 75%
+  );
+  transform: skewX(-15deg);
+  transition: left 0.55s ease;
+  pointer-events: none;
+  z-index: 2;
 }
 
 .highlight-card:hover {
   border-color: var(--blue);
-  transform: translateY(-3px);
+  transform: translateY(-14px) scale(1.02);
+  box-shadow:
+    0 0 0 1px var(--blue),
+    0 20px 40px rgba(0, 70, 224, 0.18),
+    0 50px 90px rgba(0, 70, 224, 0.08);
+}
+
+.highlight-card:hover::before {
+  opacity: 1;
+}
+
+.highlight-card:hover::after {
+  left: 160%;
 }
 
 .highlight-icon {
-  width: 44px;
-  height: 44px;
-  background: var(--blue-soft);
-  color: var(--blue);
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 1.25rem;
+  position: absolute;
+  bottom: -2.5rem;
+  right: -0.5rem;
   font-family: var(--font-display);
-  font-weight: 800;
-  font-size: 1.05rem;
-  letter-spacing: -0.02em;
+  font-weight: 900;
+  font-size: 11rem;
+  letter-spacing: -0.06em;
+  line-height: 1;
+  color: var(--blue);
+  opacity: 0.07;
+  pointer-events: none;
+  user-select: none;
+  transition: opacity 0.35s, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.highlight-card:hover .highlight-icon {
+  opacity: 0.18;
+  transform: scale(1.15) translate(4px, 4px) rotate(-2deg);
 }
 
 .highlight-value {
@@ -982,12 +1058,16 @@ section {
   letter-spacing: -0.03em;
   margin-bottom: 0.5rem;
   line-height: 1;
+  position: relative;
+  z-index: 1;
 }
 
 .highlight-text {
   color: var(--text-secondary);
   line-height: 1.55;
   font-weight: 400;
+  position: relative;
+  z-index: 1;
 }
 
 /* Clients band */
@@ -1001,37 +1081,157 @@ section {
   text-align: center;
 }
 
-.clients-grid {
+.clients-wall {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 1px;
+  background: var(--border);
   border: 1px solid var(--border);
   border-radius: 16px;
   overflow: hidden;
-  background: var(--border);
 }
 
-.client-cell {
-  padding: 1.75rem 1rem;
-  text-align: center;
+.client-tile {
   background: var(--bg-tertiary);
-  font-family: var(--font-display);
-  font-size: 0.82rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--text-tertiary);
-  transition: color 0.2s, background 0.2s;
-  cursor: default;
+  padding: 2.5rem 2rem;
+  min-height: 148px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  transition: background 0.25s;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.client-tile-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transform: scale(1.06);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+  z-index: 0;
+}
+
+/* Overlay oscuro integrado en el mismo elemento */
+.client-tile-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.52);
+}
+
+.client-tile:hover .client-tile-bg {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.client-tile img {
+  width: 110px;
+  height: auto;
+  max-height: 44px;
+  object-fit: contain;
+  display: block;
+  filter: var(--client-logo-filter);
+  mix-blend-mode: var(--client-logo-blend);
+  transition: filter 0.45s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.client-tile:has(.client-tile-bg):not(.client-tile--gourmet):hover img {
+  filter: brightness(0) invert(1);
+  mix-blend-mode: normal;
+}
+
+/* Gourmet: swap entre logo normal y negativo */
+.logo-swap {
+  position: relative;
+  z-index: 1;
+  width: 110px;
+  height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 76px;
 }
 
-.client-cell:hover {
+.logo-swap img {
+  position: absolute;
+  width: 110px;
+  max-height: 44px;
+  object-fit: contain;
+  transition: opacity 0.45s ease;
+}
+
+.logo-swap .logo-hover {
+  opacity: 0;
+  filter: none;
+  mix-blend-mode: normal;
+}
+
+.client-tile--gourmet:hover .logo-swap .logo-default {
+  opacity: 0;
+}
+
+.client-tile--gourmet:hover .logo-swap .logo-hover {
+  opacity: 1;
+}
+
+
+.client-tile--wordmark .client-tile-wordmark {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--text-secondary);
+  opacity: 0.4;
+  transition: opacity 0.35s;
+  position: relative;
+  z-index: 2;
+}
+
+.client-tile--wordmark:hover .client-tile-wordmark {
+  opacity: 0.75;
+}
+
+.client-tile--cta {
+  background: var(--bg-inverse);
+  cursor: pointer;
+  gap: 0.5rem;
+}
+
+.client-tile--cta:hover {
+  background: var(--blue);
+}
+
+.client-tile-cta-text {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text-on-inverse);
+  text-align: center;
+  line-height: 1.25;
+  transition: color 0.25s;
+  position: relative;
+  z-index: 2;
+}
+
+.client-tile-cta-arrow {
+  font-size: 1.4rem;
   color: var(--blue);
-  background: var(--blue-soft);
+  transition: transform 0.25s, color 0.25s;
+  position: relative;
+  z-index: 2;
+}
+
+.client-tile--cta:hover .client-tile-cta-arrow {
+  transform: translateX(4px);
+  color: rgba(255, 255, 255, 0.7);
 }
 
 /* ── CASES ── */
@@ -1487,9 +1687,10 @@ footer {
     grid-template-columns: 1fr;
   }
 
-  .clients-grid {
+  .clients-wall {
     grid-template-columns: repeat(3, 1fr);
   }
+
 }
 
 @media (max-width: 720px) {
@@ -1529,9 +1730,10 @@ footer {
     border-bottom: none;
   }
 
-  .clients-grid {
+  .clients-wall {
     grid-template-columns: repeat(2, 1fr);
   }
+
 }
 
 @media (max-width: 480px) {
