@@ -1482,9 +1482,10 @@ section {
   transform: translate(-50%, -50%) scale(1.06);
 }
 
-/* Dark theme: el filtro monocromo aplasta el logo a un cuadrado blanco
-   sin detalle. Usamos la variante con letras recortadas (hover) como
-   default y subimos opacidad en hover. */
+/* Dark theme: el filtro monocromo aplasta el logo a un blanco plano sin
+   detalle. Usamos la variante recortada (white square + letter cutouts)
+   como default a 0.55 de opacidad para que coincida con el aspecto gris
+   atenuado del resto de logos. En hover sube a opacidad 1. */
 [data-theme="dark"] .client-tile--gatek .gatek-logo--default {
   opacity: 0;
 }
@@ -1620,7 +1621,7 @@ section {
   .client-tile--gourmet .logo-swap .logo-default { opacity: 0; }
   .client-tile--gourmet .logo-swap .logo-hover { opacity: 1; }
 
-  /* Gatek · variante recortada siempre visible */
+  /* Gatek · variante recortada siempre visible (light: opacity 1, dark: 1) */
   .client-tile--gatek .gatek-logo--default { opacity: 0; }
   .client-tile--gatek .gatek-logo--hover { opacity: 1; }
   [data-theme="dark"] .client-tile--gatek .gatek-logo--hover { opacity: 1; }
