@@ -137,12 +137,6 @@ nav {
   z-index: 101;
 }
 
-@media (hover: hover) and (pointer: fine) {
-  .hamburger:hover span {
-    background-color: var(--blue);
-  }
-}
-
 .hamburger span {
   width: 26px;
   height: 2px;
