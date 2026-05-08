@@ -1601,6 +1601,51 @@ section {
   color: var(--white);
 }
 
+/* ── MOBILE / TOUCH DEVICES: alternativa al hover ──
+   En táctil :hover no funciona (o queda pegado). Mostramos el estado
+   "hover" como default para que el usuario vea siempre la card rica. */
+@media (hover: none) and (pointer: coarse) {
+  /* Standard tiles · bg visible + logo en blanco */
+  .client-tile:has(.client-tile-bg) .client-tile-bg {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .client-tile:has(.client-tile-bg):not(.client-tile--gourmet):not(.client-tile--gatek) img {
+    filter: brightness(0) invert(1);
+    mix-blend-mode: normal;
+  }
+
+  /* Gourmet · variante negativa siempre visible */
+  .client-tile--gourmet .logo-swap .logo-default { opacity: 0; }
+  .client-tile--gourmet .logo-swap .logo-hover { opacity: 1; }
+
+  /* Gatek · variante recortada siempre visible */
+  .client-tile--gatek .gatek-logo--default { opacity: 0; }
+  .client-tile--gatek .gatek-logo--hover { opacity: 1; }
+  [data-theme="dark"] .client-tile--gatek .gatek-logo--hover { opacity: 1; }
+
+  /* Wordmark · texto a opacidad alta */
+  .client-tile--wordmark .client-tile-wordmark { opacity: 0.75; }
+
+  /* CTA · estado activo (azul lleno) */
+  .client-tile--cta,
+  [data-theme="light"] .client-tile--cta {
+    background: var(--blue);
+  }
+
+  .client-tile--cta .client-tile-cta-text,
+  [data-theme="light"] .client-tile--cta .client-tile-cta-text {
+    color: var(--white);
+  }
+
+  .client-tile--cta .client-tile-cta-arrow,
+  [data-theme="light"] .client-tile--cta .client-tile-cta-arrow {
+    color: var(--white);
+    transform: translateX(4px);
+  }
+}
+
 .client-tile-cta-text {
   font-family: var(--font-display);
   font-size: var(--fs-base);
