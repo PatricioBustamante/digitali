@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "WebFetch(domain:www.anthonydesigner.com)"
+      "WebFetch(domain:www.anthonydesigner.com)",
+      "Bash(grep -nA 3 \"^\\\\.highlight-text\\\\|^\\\\.case-body\\\\|^\\\\.achievement-label\" /Users/patriciobustamante/Documents/Repositories/digitali/css/style.css)",
+      "Bash(grep -nB 1 \"case-card\\\\|case-header\\\\|case-industry\\\\|case-client\\\\|case-project\" /Users/patriciobustamante/Documents/Repositories/digitali/css/style.css)"
     ]
   }
 }
