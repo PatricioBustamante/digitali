@@ -1,0 +1,122 @@
+/* ============================================
+   DIGITALI · DESIGN SYSTEM TOKENS
+   8px grid · single source of truth
+   ============================================
+   All spacing values are multiples of 8 (base).
+   Sub-grid values use 4px (half-step) when 8 is too coarse.
+   ============================================ */
+
+:root {
+  /* ── GRID BASE ─────────────────────────────── */
+  --grid-base: 8px;
+  --grid-half: 4px;
+
+  /* ── SPACING SCALE (8px grid) ──────────────── */
+  --space-xs:  8px;   /* 1×  */
+  --space-sm:  16px;  /* 2×  */
+  --space-md:  24px;  /* 3×  */
+  --space-lg:  32px;  /* 4×  */
+  --space-xl:  40px;  /* 5×  */
+  --space-2xl: 48px;  /* 6×  */
+  --space-3xl: 56px;  /* 7×  */
+  --space-4xl: 64px;  /* 8×  */
+  --space-5xl: 80px;  /* 10× */
+  --space-6xl: 96px;  /* 12× */
+
+  /* Sub-grid (use only for icon-level details) */
+  --space-2xs: 4px;   /* 0.5× */
+
+  /* ── TYPOGRAPHY · FONT SIZES (4px steps) ───── */
+  --fs-xs:   12px;
+  --fs-sm:   14px;
+  --fs-md:   16px;
+  --fs-lg:   18px;
+  --fs-xl:   20px;
+  --fs-2xl:  24px;
+  --fs-3xl:  32px;
+  --fs-4xl:  40px;
+  --fs-5xl:  48px;
+
+  /* ── TYPOGRAPHY · LINE HEIGHTS (4px steps) ─── */
+  --lh-xs:   16px;
+  --lh-sm:   20px;
+  --lh-md:   24px;
+  --lh-lg:   28px;
+  --lh-xl:   32px;
+  --lh-2xl:  40px;
+  --lh-3xl:  48px;
+  --lh-4xl:  56px;
+  --lh-5xl:  64px;
+
+  /* ── TYPOGRAPHY · LETTER SPACING ───────────── */
+  --tracking-tight:  -0.5px;
+  --tracking-normal: 0;
+  --tracking-wide:   0.5px;
+  --tracking-wider:  1px;
+
+  /* ── TYPOGRAPHY · WEIGHTS ──────────────────── */
+  --fw-regular:  400;
+  --fw-medium:   500;
+  --fw-semibold: 600;
+  --fw-bold:     700;
+  --fw-heavy:    800;
+
+  /* ── RADII (8px-aligned, plus 4px detail) ──── */
+  --radius-xs:     4px;
+  --radius-sm:     8px;
+  --radius-md:     16px;
+  --radius-lg:     24px;
+  --radius-pill:   9999px;
+  --radius-circle: 50%;
+
+  /* ── COMPONENT TOKENS ──────────────────────── */
+  /* Button */
+  --btn-height:        40px;        /* 5× */
+  --btn-padding-y:     12px;        /* sub-grid (sits on baseline) */
+  --btn-padding-x:     16px;        /* 2× */
+  --btn-radius:        var(--radius-sm);
+  --btn-font-size:     var(--fs-sm);
+  --btn-line-height:   var(--lh-sm);
+
+  /* Card */
+  --card-padding:      24px;        /* 3× */
+  --card-radius:       var(--radius-sm);
+  --card-gap:          var(--space-sm);
+
+  /* Input */
+  --input-height:      40px;        /* 5× */
+  --input-padding-y:   8px;         /* 1× */
+  --input-padding-x:   12px;        /* sub-grid */
+  --input-radius:      var(--radius-sm);
+  --input-font-size:   var(--fs-md);
+
+  /* Badge */
+  --badge-height:      24px;        /* 3× */
+  --badge-padding-y:   4px;         /* 0.5× */
+  --badge-padding-x:   8px;         /* 1× */
+  --badge-radius:      var(--radius-xs);
+  --badge-font-size:   var(--fs-xs);
+}
+
+/* ============================================
+   UTILITY CLASSES (optional helpers)
+   ============================================ */
+.u-stack-xs  { display: flex; flex-direction: column; gap: var(--space-xs); }
+.u-stack-sm  { display: flex; flex-direction: column; gap: var(--space-sm); }
+.u-stack-md  { display: flex; flex-direction: column; gap: var(--space-md); }
+.u-stack-lg  { display: flex; flex-direction: column; gap: var(--space-lg); }
+
+.u-row-xs    { display: flex; gap: var(--space-xs); }
+.u-row-sm    { display: flex; gap: var(--space-sm); }
+.u-row-md    { display: flex; gap: var(--space-md); }
+.u-row-lg    { display: flex; gap: var(--space-lg); }
+
+.u-p-xs { padding: var(--space-xs); }
+.u-p-sm { padding: var(--space-sm); }
+.u-p-md { padding: var(--space-md); }
+.u-p-lg { padding: var(--space-lg); }
+
+.u-m-xs { margin: var(--space-xs); }
+.u-m-sm { margin: var(--space-sm); }
+.u-m-md { margin: var(--space-md); }
+.u-m-lg { margin: var(--space-lg); }
