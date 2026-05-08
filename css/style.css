@@ -2154,7 +2154,9 @@ footer {
 
 }
 
-@media (max-width: 720px) {
+/* Switch to hamburger nav earlier (≤880px) to avoid the cramped state
+   between ~720–840px where nav-links collide with the logo. */
+@media (max-width: 880px) {
   .hamburger {
     display: flex;
   }
@@ -2166,7 +2168,9 @@ footer {
   .nav-links .nav-cta {
     display: none;
   }
+}
 
+@media (max-width: 720px) {
   .services-grid,
   .cases-grid {
     grid-template-columns: 1fr;
