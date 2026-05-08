@@ -1402,6 +1402,7 @@ section {
   transform: scale(1.06);
   transition: opacity 0.45s var(--ease-smooth), transform 0.45s var(--ease-smooth);
   z-index: 0;
+  pointer-events: none;
 }
 
 /* Overlay oscuro integrado en el mismo elemento */
@@ -1428,6 +1429,7 @@ section {
   transition: filter 0.45s var(--ease-smooth);
   position: relative;
   z-index: 1;
+  pointer-events: none;
 }
 
 .client-tile:has(.client-tile-bg):not(.client-tile--gourmet):not(.client-tile--gatek):hover img {
@@ -1446,6 +1448,7 @@ section {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;
+  pointer-events: none;
   transition: opacity 0.45s var(--ease-smooth), transform 0.45s var(--ease-smooth);
 }
 
@@ -1477,6 +1480,21 @@ section {
 .client-tile--gatek:hover .gatek-logo--hover {
   opacity: 1;
   transform: translate(-50%, -50%) scale(1.06);
+}
+
+/* Dark theme: el filtro monocromo aplasta el logo a un cuadrado blanco
+   sin detalle. Usamos la variante con letras recortadas (hover) como
+   default y subimos opacidad en hover. */
+[data-theme="dark"] .client-tile--gatek .gatek-logo--default {
+  opacity: 0;
+}
+
+[data-theme="dark"] .client-tile--gatek .gatek-logo--hover {
+  opacity: 0.55;
+}
+
+[data-theme="dark"] .client-tile--gatek:hover .gatek-logo--hover {
+  opacity: 1;
 }
 
 /* Gourmet: swap entre logo normal y negativo */
@@ -1549,16 +1567,44 @@ section {
   background: var(--bg-inverse);
   cursor: pointer;
   gap: 0.5rem;
+  transition: background 0.32s var(--ease-smooth);
 }
 
 .client-tile--cta:hover {
   background: var(--blue);
 }
 
+/* Light theme · fondo gris (en lugar del negro sólido) para suavizar
+   el contraste sin perder presencia. Dark theme conserva el comportamiento
+   original (--bg-inverse → blue en hover). */
+[data-theme="light"] .client-tile--cta {
+  background: var(--bg-secondary);
+}
+
+[data-theme="light"] .client-tile--cta:hover {
+  background: var(--blue);
+}
+
+[data-theme="light"] .client-tile--cta .client-tile-cta-text {
+  color: var(--text-primary);
+}
+
+[data-theme="light"] .client-tile--cta:hover .client-tile-cta-text {
+  color: var(--white);
+}
+
+[data-theme="light"] .client-tile--cta .client-tile-cta-arrow {
+  color: var(--blue);
+}
+
+[data-theme="light"] .client-tile--cta:hover .client-tile-cta-arrow {
+  color: var(--white);
+}
+
 .client-tile-cta-text {
   font-family: var(--font-display);
   font-size: var(--fs-base);
-  font-weight: var(--fw-heavy);
+  font-weight: var(--fw-semibold);
   letter-spacing: -0.02em;
   color: var(--text-on-inverse);
   text-align: center;
