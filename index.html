@@ -11,54 +11,69 @@
 
 <body>
 
-  <!-- NAV -->
-  <nav>
-    <a href="#" class="nav-logo">
-      <img src="assets/digitali-logo.svg" alt="Digitali">
-    </a>
-    <div class="nav-links">
-      <a href="#services">Servicios</a>
-      <a href="#achievements">Clientes</a>
-      <a href="#cases">Casos</a>
-      <a href="#why">Por qué elegirnos</a>
-      <a href="#cta" class="nav-cta">Hablemos →</a>
-      <button class="hamburger" id="navToggle" aria-label="Abrir menú">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
-  </nav>
+  <a href="#main" class="skip-link">Saltar al contenido principal</a>
 
-  <div class="mobile-menu" id="mobileMenu">
+  <!-- NAV -->
+  <header>
+    <nav aria-label="Navegación principal">
+      <a href="#hero" class="nav-logo" aria-label="Digitali · Inicio">
+        <img src="assets/digitali-logo.svg" alt="">
+      </a>
+      <div class="nav-links">
+        <a href="#services">Servicios</a>
+        <a href="#achievements">Clientes</a>
+        <a href="#cases">Casos</a>
+        <a href="#why">Por qué elegirnos</a>
+        <a href="#cta" class="nav-cta">Hablemos<span aria-hidden="true"> →</span></a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Cambiar a modo oscuro" aria-pressed="false">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+            <circle cx="12" cy="12" r="4" />
+            <path
+              d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+          </svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+          </svg>
+        </button>
+        <button class="hamburger" id="navToggle" aria-label="Abrir menú" aria-expanded="false"
+          aria-controls="mobileMenu">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
     <div class="mobile-menu-links">
-      <a href="#services">Servicios</a>
-      <a href="#achievements">Clientes</a>
-      <a href="#cases">Casos</a>
-      <a href="#why">Por qué elegirnos</a>
+      <a href="#services" tabindex="-1">Servicios</a>
+      <a href="#achievements" tabindex="-1">Clientes</a>
+      <a href="#cases" tabindex="-1">Casos</a>
+      <a href="#why" tabindex="-1">Por qué elegirnos</a>
     </div>
     <div class="mobile-menu-footer">
-      <a href="#cta" class="nav-cta">Hablemos →</a>
-      <button class="theme-toggle" id="themeToggleMobile" aria-label="Cambiar tema">
-        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-          stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="4" />
-          <path
-            d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
-        </svg>
-        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-          stroke-linecap="round" stroke-linejoin="round">
-          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-        </svg>
-      </button>
+      <a href="#cta" class="nav-cta" tabindex="-1">Hablemos<span aria-hidden="true"> →</span></a>
     </div>
   </div>
 
+  <main id="main">
+
+  <!-- SCROLL HINT -->
+  <a href="#services" class="scroll-hint" id="scrollHint" aria-label="Bajar a la sección de servicios">
+    <span class="scroll-hint-label">Desliza para descubrir</span>
+    <span class="scroll-hint-mouse" aria-hidden="true">
+      <span class="scroll-hint-wheel"></span>
+    </span>
+  </a>
+
   <!-- HERO -->
-  <section id="hero" class="hero-banner">
+  <section id="hero" class="hero-banner" aria-labelledby="hero-title">
     <div class="hero-left">
       <div class="hero-eyebrow">Data &amp; Software Factory · Desde 2016</div>
-      <h1 class="hero-title">
+      <h1 id="hero-title" class="hero-title">
         Tecnología<br>que <em>resuelve.</em><br>Resultados<br>que se miden.
       </h1>
       <p class="hero-subtitle">
@@ -66,11 +81,11 @@
         impacto real — no promesas.
       </p>
       <div class="hero-actions">
-        <a href="#cta" class="btn-primary">Iniciar proyecto →</a>
-        <a href="#cases" class="btn-ghost">Ver casos de éxito ↓</a>
+        <a href="#cta" class="btn-primary">Iniciar proyecto<span aria-hidden="true"> →</span></a>
+        <a href="#cases" class="btn-ghost">Ver casos de éxito<span aria-hidden="true"> ↓</span></a>
       </div>
     </div>
-    <div class="hero-right">
+    <div class="hero-right" aria-hidden="true">
       <div class="hero-graphic">
         <div class="hero-ring"></div>
         <div class="hero-ring"></div>
@@ -108,7 +123,7 @@
   </section>
 
   <!-- MARQUEE -->
-  <div class="marquee-wrap">
+  <div class="marquee-wrap" aria-hidden="true">
     <div class="marquee-track">
       <span class="marquee-item accent">· Datos</span>
       <span class="marquee-item">Data Strategy</span>
@@ -146,111 +161,195 @@
   </div>
 
   <!-- SERVICES -->
-  <section id="services">
+  <section id="services" aria-labelledby="services-title">
     <div class="services-header reveal">
       <div class="section-eyebrow">Servicios</div>
-      <h2 class="section-title">Tres verticales,<br><em>un solo equipo.</em></h2>
+      <h2 id="services-title" class="section-title">Tres verticales,<br><em>un solo equipo.</em></h2>
       <p class="section-sub">Capacidades end-to-end para que el dato y el software sean activos estratégicos de tu
         empresa.</p>
     </div>
     <div class="services-grid">
-      <div class="service-card reveal reveal-delay-1">
-        <div class="service-num">01</div>
-        <div class="service-icon">◈</div>
-        <div class="service-name">Datos</div>
-        <p class="service-desc">Arquitecturas modernas para la gestión eficiente de datos. Desde la estrategia hasta la
-          calidad y gobierno.</p>
-        <div class="service-tags">
-          <span class="tag">Data Strategy</span>
-          <span class="tag">Data Factory</span>
-          <span class="tag">Governance</span>
-          <span class="tag">Data Quality</span>
-          <span class="tag">Advanced Analytics</span>
+      <article class="service-card reveal reveal-delay-1" data-service="data">
+        <div class="service-media">
+          <span class="service-media-orb"></span>
+          <span class="service-media-orb"></span>
+          <span class="service-media-orb"></span>
+          <div class="service-media-icon" aria-hidden="true">◈</div>
+          <div class="service-media-overlay">
+            <h3 class="service-name">Datos</h3>
+          </div>
         </div>
-      </div>
-      <div class="service-card reveal reveal-delay-2">
-        <div class="service-num">02</div>
-        <div class="service-icon">◉</div>
-        <div class="service-name">Inteligencia Artificial</div>
-        <p class="service-desc">IA aplicada para automatizar, predecir y ganar ventaja competitiva. ML, GenAI y agentes
-          inteligentes.</p>
-        <div class="service-tags">
-          <span class="tag">Modelos ML</span>
-          <span class="tag">GenAI</span>
-          <span class="tag">Automatización</span>
-          <span class="tag">Agentes IA</span>
-          <span class="tag">NLP</span>
+        <div class="service-body">
+          <p class="service-desc">Arquitecturas modernas para la gestión eficiente de datos. Desde la estrategia hasta la
+            calidad y gobierno.</p>
+          <div class="service-tags">
+            <span class="tag">Data Strategy</span>
+            <span class="tag">Data Factory</span>
+            <span class="tag">Governance</span>
+            <span class="tag">Data Quality</span>
+            <span class="tag">Advanced Analytics</span>
+          </div>
+          <a href="#cta" class="service-cta">
+            <span class="service-cta-label">Conocer más</span>
+            <span class="service-cta-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg>
+            </span>
+          </a>
         </div>
-      </div>
-      <div class="service-card reveal reveal-delay-3">
-        <div class="service-num">03</div>
-        <div class="service-icon">◧</div>
-        <div class="service-name">Software Factory</div>
-        <p class="service-desc">Productos digitales a medida con foco en escalabilidad y UX. Equipos ágiles integrados
-          como extensión de tu empresa.</p>
-        <div class="service-tags">
-          <span class="tag">Full-Stack</span>
-          <span class="tag">Equipos ágiles</span>
-          <span class="tag">DevOps & QA</span>
-          <span class="tag">Modernización</span>
+      </article>
+      <article class="service-card reveal reveal-delay-2" data-service="ai">
+        <div class="service-media">
+          <span class="service-media-orb"></span>
+          <span class="service-media-orb"></span>
+          <span class="service-media-orb"></span>
+          <div class="service-media-icon" aria-hidden="true">◉</div>
+          <div class="service-media-overlay">
+            <h3 class="service-name">Inteligencia Artificial</h3>
+          </div>
         </div>
-      </div>
+        <div class="service-body">
+          <p class="service-desc">IA aplicada para automatizar, predecir y ganar ventaja competitiva. ML, GenAI y agentes
+            inteligentes.</p>
+          <div class="service-tags">
+            <span class="tag">Modelos ML</span>
+            <span class="tag">GenAI</span>
+            <span class="tag">Automatización</span>
+            <span class="tag">Agentes IA</span>
+            <span class="tag">NLP</span>
+          </div>
+          <a href="#cta" class="service-cta">
+            <span class="service-cta-label">Conocer más</span>
+            <span class="service-cta-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg>
+            </span>
+          </a>
+        </div>
+      </article>
+      <article class="service-card reveal reveal-delay-3" data-service="software">
+        <div class="service-media">
+          <span class="service-media-orb"></span>
+          <span class="service-media-orb"></span>
+          <span class="service-media-orb"></span>
+          <div class="service-media-icon" aria-hidden="true">◧</div>
+          <div class="service-media-overlay">
+            <h3 class="service-name">Software Factory</h3>
+          </div>
+        </div>
+        <div class="service-body">
+          <p class="service-desc">Productos digitales a medida con foco en escalabilidad y UX. Equipos ágiles integrados
+            como extensión de tu empresa.</p>
+          <div class="service-tags">
+            <span class="tag">Full-Stack</span>
+            <span class="tag">Equipos ágiles</span>
+            <span class="tag">DevOps & QA</span>
+            <span class="tag">Modernización</span>
+          </div>
+          <a href="#cta" class="service-cta">
+            <span class="service-cta-label">Conocer más</span>
+            <span class="service-cta-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg>
+            </span>
+          </a>
+        </div>
+      </article>
     </div>
   </section>
 
   <!-- HOW -->
-  <section id="how">
-    <div class="reveal">
+  <section id="how" aria-labelledby="how-title">
+    <div class="how-header reveal">
       <div class="section-eyebrow">Metodología</div>
-      <h2 class="section-title">Cómo lo <em>hacemos.</em></h2>
+      <h2 id="how-title" class="section-title">Cómo lo <em>hacemos.</em></h2>
       <p class="section-sub">Seis etapas ágiles. Entregas cada 2 semanas. Validación continua contigo en cada paso.</p>
+      <div class="how-tag">
+        <span class="how-tag-dot" aria-hidden="true"></span>
+        El orden se adapta a las necesidades de cada proyecto
+      </div>
     </div>
-    <div class="steps-grid reveal">
-      <div class="step">
-        <div class="step-accent"></div>
-        <div class="step-num">01</div>
-        <div class="step-name">Descubrimiento</div>
-        <p class="step-desc">Entendemos el problema y definimos el alcance real.</p>
-      </div>
-      <div class="step">
-        <div class="step-accent"></div>
-        <div class="step-num">02</div>
-        <div class="step-name">Exploración &amp; Diseño</div>
-        <p class="step-desc">Arquitectura y UX antes de escribir una línea de código.</p>
-      </div>
-      <div class="step">
-        <div class="step-accent"></div>
-        <div class="step-num">03</div>
-        <div class="step-name">Planificación Ágil</div>
-        <p class="step-desc">Roadmap priorizado por valor de negocio.</p>
-      </div>
-      <div class="step">
-        <div class="step-accent"></div>
-        <div class="step-num">04</div>
-        <div class="step-name">Construcción</div>
-        <p class="step-desc">Sprints de 2 semanas con demos reales.</p>
-      </div>
-      <div class="step">
-        <div class="step-accent"></div>
-        <div class="step-num">05</div>
-        <div class="step-name">Despliegue</div>
-        <p class="step-desc">Go-live con acompañamiento y monitoreo proactivo.</p>
-      </div>
-      <div class="step">
-        <div class="step-accent"></div>
-        <div class="step-num">06</div>
-        <div class="step-name">Evolución continua</div>
-        <p class="step-desc">Mejora iterativa post-lanzamiento. Somos tu equipo.</p>
-      </div>
+    <div class="steps-flow reveal" id="stepsFlow" aria-label="Etapas del proyecto, orden adaptable">
+      <span class="steps-flow-glow steps-flow-glow-1" aria-hidden="true"></span>
+      <span class="steps-flow-glow steps-flow-glow-2" aria-hidden="true"></span>
+      <article class="step-chip">
+        <div class="step-chip-inner">
+          <div class="step-chip-head">
+            <span class="step-chip-num" aria-hidden="true">01</span>
+            <span class="step-chip-pulse" aria-hidden="true"></span>
+          </div>
+          <h3 class="step-chip-name">Descubrimiento</h3>
+          <p class="step-chip-desc">Entendemos el problema y definimos el alcance real.</p>
+        </div>
+      </article>
+      <article class="step-chip">
+        <div class="step-chip-inner">
+          <div class="step-chip-head">
+            <span class="step-chip-num" aria-hidden="true">02</span>
+            <span class="step-chip-pulse" aria-hidden="true"></span>
+          </div>
+          <h3 class="step-chip-name">Exploración &amp; Diseño</h3>
+          <p class="step-chip-desc">Arquitectura y UX antes de escribir una línea de código.</p>
+        </div>
+      </article>
+      <article class="step-chip">
+        <div class="step-chip-inner">
+          <div class="step-chip-head">
+            <span class="step-chip-num" aria-hidden="true">03</span>
+            <span class="step-chip-pulse" aria-hidden="true"></span>
+          </div>
+          <h3 class="step-chip-name">Planificación Ágil</h3>
+          <p class="step-chip-desc">Roadmap priorizado por valor de negocio.</p>
+        </div>
+      </article>
+      <article class="step-chip">
+        <div class="step-chip-inner">
+          <div class="step-chip-head">
+            <span class="step-chip-num" aria-hidden="true">04</span>
+            <span class="step-chip-pulse" aria-hidden="true"></span>
+          </div>
+          <h3 class="step-chip-name">Construcción</h3>
+          <p class="step-chip-desc">Sprints de 2 semanas con demos reales.</p>
+        </div>
+      </article>
+      <article class="step-chip">
+        <div class="step-chip-inner">
+          <div class="step-chip-head">
+            <span class="step-chip-num" aria-hidden="true">05</span>
+            <span class="step-chip-pulse" aria-hidden="true"></span>
+          </div>
+          <h3 class="step-chip-name">Despliegue</h3>
+          <p class="step-chip-desc">Go-live con acompañamiento y monitoreo proactivo.</p>
+        </div>
+      </article>
+      <article class="step-chip">
+        <div class="step-chip-inner">
+          <div class="step-chip-head">
+            <span class="step-chip-num" aria-hidden="true">06</span>
+            <span class="step-chip-pulse" aria-hidden="true"></span>
+          </div>
+          <h3 class="step-chip-name">Evolución continua</h3>
+          <p class="step-chip-desc">Mejora iterativa post-lanzamiento. Somos tu equipo.</p>
+        </div>
+      </article>
     </div>
   </section>
 
   <!-- ACHIEVEMENTS / CLIENTES Y LOGROS -->
-  <section id="achievements">
+  <section id="achievements" aria-labelledby="achievements-title">
     <div class="achievements-header">
       <div class="reveal">
         <div class="section-eyebrow">Clientes &amp; Logros</div>
-        <h2 class="section-title">Resultados que <em>hablan<br>por nosotros.</em></h2>
+        <h2 id="achievements-title" class="section-title">Resultados que <em>hablan<br>por nosotros.</em></h2>
       </div>
       <div class="achievements-header-right reveal reveal-delay-1">
         Cada número representa un equipo que confió, un proceso que funcionó y un negocio que avanzó. Hemos trabajado
@@ -364,10 +463,10 @@
   </section>
 
   <!-- CASES -->
-  <section id="cases">
+  <section id="cases" aria-labelledby="cases-title">
     <div class="reveal">
       <div class="section-eyebrow">Casos de éxito</div>
-      <h2 class="section-title">Proyectos que <em>marcan diferencia.</em></h2>
+      <h2 id="cases-title" class="section-title">Proyectos que <em>marcan diferencia.</em></h2>
       <p class="section-sub">Una muestra de los proyectos que han transformado operaciones, decisiones y negocios.</p>
     </div>
     <div class="cases-grid">
@@ -472,10 +571,10 @@
   </section>
 
   <!-- WHY -->
-  <section id="why">
+  <section id="why" aria-labelledby="why-title">
     <div class="why-left">
       <div class="section-eyebrow reveal">Por qué elegirnos</div>
-      <h2 class="section-title reveal">No entregamos<br>proyectos.<br><em>Construimos<br>resultados.</em></h2>
+      <h2 id="why-title" class="section-title reveal">No entregamos<br>proyectos.<br><em>Construimos<br>resultados.</em></h2>
       <div class="reasons-list">
         <div class="reason reveal">
           <div class="reason-num">01</div>
@@ -511,26 +610,26 @@
       </div>
     </div>
     <div class="why-right reveal">
-      <div>
-        <div class="quote-mark">"</div>
-        <div class="quote-text">Resolver problemas complejos con soluciones simples, útiles y bien hechas.</div>
-        <div class="quote-source">Nuestro código · Digitali</div>
-      </div>
+      <blockquote class="why-quote">
+        <div class="quote-mark" aria-hidden="true">"</div>
+        <p class="quote-text">Resolver problemas complejos con soluciones simples, útiles y bien hechas.</p>
+        <footer class="quote-source">Nuestro código · Digitali</footer>
+      </blockquote>
       <div class="why-numbers">
         <div class="why-num-cell">
-          <div class="why-num-val">+$300<span>MM</span></div>
+          <div class="why-num-val">+$<span data-count="300">0</span><span>MM</span></div>
           <div class="why-num-lbl">USD en valor</div>
         </div>
         <div class="why-num-cell">
-          <div class="why-num-val">4<span>×</span></div>
+          <div class="why-num-val"><span data-count="4">0</span><span>×</span></div>
           <div class="why-num-lbl">aceleración</div>
         </div>
         <div class="why-num-cell">
-          <div class="why-num-val">−35<span>%</span></div>
+          <div class="why-num-val">−<span data-count="35">0</span><span>%</span></div>
           <div class="why-num-lbl">costo operación</div>
         </div>
         <div class="why-num-cell">
-          <div class="why-num-val">+120</div>
+          <div class="why-num-val">+<span data-count="120">0</span></div>
           <div class="why-num-lbl">modelos en prod</div>
         </div>
       </div>
@@ -538,27 +637,29 @@
   </section>
 
   <!-- CTA -->
-  <section id="cta">
-    <h2 class="section-title">Hagamos algo<br>que funcione.</h2>
+  <section id="cta" aria-labelledby="cta-title">
+    <h2 id="cta-title" class="section-title">Hagamos algo<br>que funcione.</h2>
     <p class="section-sub">Conversemos sobre tu desafío. Sin compromiso, con foco en resultados.</p>
-    <a href="mailto:cristian.gonzalezh@digitali.cl" class="btn-white">Agendar conversación →</a>
+    <a href="mailto:cristian.gonzalezh@digitali.cl" class="btn-white">Agendar conversación<span aria-hidden="true"> →</span></a>
     <div class="cta-contacts">
-      <div class="contact-person">
+      <address class="contact-person">
         <div class="contact-name">Cristian González Holuigue</div>
         <div class="contact-info">
           <a href="mailto:cristian.gonzalezh@digitali.cl">cristian.gonzalezh@digitali.cl</a><br>
-          +56 9 9195 1159
+          <a href="tel:+56991951159">+56 9 9195 1159</a>
         </div>
-      </div>
-      <div class="contact-person">
+      </address>
+      <address class="contact-person">
         <div class="contact-name">Humberto Ramírez Miranda</div>
         <div class="contact-info">
           <a href="mailto:humberto.ramirez@digitali.cl">humberto.ramirez@digitali.cl</a><br>
-          +56 9 9249 7648
+          <a href="tel:+56992497648">+56 9 9249 7648</a>
         </div>
-      </div>
+      </address>
     </div>
   </section>
+
+  </main>
 
   <!-- FOOTER -->
   <footer>
