@@ -652,23 +652,39 @@
   <section id="cta" aria-labelledby="cta-title">
     <h2 id="cta-title" class="section-title">Hagamos algo<br>que funcione.</h2>
     <p class="section-sub">Conversemos sobre tu desafío. Sin compromiso, con foco en resultados.</p>
-    <a href="mailto:cristian.gonzalezh@digitali.cl" class="btn-white">Agendar conversación<span aria-hidden="true"> →</span></a>
-    <div class="cta-contacts">
-      <address class="contact-person">
-        <div class="contact-name">Cristian González Holuigue</div>
-        <div class="contact-info">
-          <a href="mailto:cristian.gonzalezh@digitali.cl">cristian.gonzalezh@digitali.cl</a><br>
-          <a href="tel:+56991951159">+56 9 9195 1159</a>
+
+    <form class="cta-form" id="ctaForm" novalidate aria-label="Formulario de contacto">
+      <div class="cta-form-row">
+        <div class="cta-field">
+          <label for="cta-name">Nombre</label>
+          <input id="cta-name" name="name" type="text" autocomplete="name" required placeholder="Tu nombre completo">
         </div>
-      </address>
-      <address class="contact-person">
-        <div class="contact-name">Humberto Ramírez Miranda</div>
-        <div class="contact-info">
-          <a href="mailto:humberto.ramirez@digitali.cl">humberto.ramirez@digitali.cl</a><br>
-          <a href="tel:+56992497648">+56 9 9249 7648</a>
+        <div class="cta-field">
+          <label for="cta-email">Correo electrónico</label>
+          <input id="cta-email" name="email" type="email" autocomplete="email" required placeholder="tu@empresa.com">
         </div>
-      </address>
-    </div>
+      </div>
+
+      <div class="cta-form-row">
+        <div class="cta-field">
+          <label for="cta-phone">Teléfono</label>
+          <input id="cta-phone" name="phone" type="tel" autocomplete="tel" placeholder="+56 9 0000 0000">
+        </div>
+        <div class="cta-field">
+          <label for="cta-company">Empresa</label>
+          <input id="cta-company" name="company" type="text" autocomplete="organization" placeholder="Nombre de tu empresa">
+        </div>
+      </div>
+
+      <div class="cta-field cta-field--full">
+        <label for="cta-message">Mensaje</label>
+        <textarea id="cta-message" name="message" rows="4" required placeholder="Cuéntanos brevemente sobre tu desafío"></textarea>
+      </div>
+
+      <button type="submit" class="btn-white cta-form-submit">
+        Enviar mensaje<span aria-hidden="true"> →</span>
+      </button>
+    </form>
   </section>
 
   </main>
