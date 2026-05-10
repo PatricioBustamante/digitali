@@ -4,61 +4,79 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Digitali · Data & Software Factory</title>
+
+  <!-- Primary meta -->
+  <title>Digitali · Data &amp; Software Factory en Chile</title>
+  <meta name="description"
+    content="Digitali construye plataformas de datos, productos digitales e inteligencia artificial para empresas que quieren transformar su negocio. +120 proyectos, +9 años, equipo end-to-end.">
+  <meta name="keywords" content="data factory, software factory, inteligencia artificial, IA, machine learning, GenAI, data strategy, data governance, consultora datos Chile, Santiago, Digitali">
+  <meta name="author" content="Digitali">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#0046E0">
+  <link rel="canonical" href="https://digitali.cl/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_CL">
+  <meta property="og:site_name" content="Digitali">
+  <meta property="og:url" content="https://digitali.cl/">
+  <meta property="og:title" content="Digitali · Data &amp; Software Factory en Chile">
+  <meta property="og:description"
+    content="Plataformas de datos, productos digitales e IA aplicada. End-to-end, desde la estrategia hasta operación continua.">
+  <meta property="og:image" content="https://digitali.cl/assets/og-image.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Digitali · Data &amp; Software Factory">
+  <meta name="twitter:description"
+    content="Plataformas de datos, productos digitales e IA aplicada para empresas que toman decisiones con confianza.">
+  <meta name="twitter:image" content="https://digitali.cl/assets/og-image.png">
+
+  <!-- Assets · preload critical -->
+  <link rel="preload" as="image" type="image/svg+xml" href="assets/digitali-logo.svg" fetchpriority="high">
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+  <!-- Structured data · Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Digitali",
+    "alternateName": "Digitali Data & Software Factory",
+    "url": "https://digitali.cl",
+    "logo": "https://digitali.cl/assets/digitali-logo.svg",
+    "description": "Data & Software Factory en Chile. Construimos plataformas de datos, productos digitales e inteligencia artificial.",
+    "foundingDate": "2016",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Santiago",
+      "addressCountry": "CL"
+    },
+    "areaServed": { "@type": "Country", "name": "Chile" },
+    "knowsAbout": ["Data Strategy", "Data Governance", "Machine Learning", "Inteligencia Artificial Generativa", "Software Factory", "Cloud", "Analytics"]
+  }
+  </script>
+
+  <!-- Structured data · Website with SearchAction -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Digitali",
+    "url": "https://digitali.cl/",
+    "inLanguage": "es-CL"
+  }
+  </script>
 </head>
 
 <body>
 
   <a href="#main" class="skip-link">Saltar al contenido principal</a>
 
-  <!-- NAV -->
-  <header>
-    <nav aria-label="Navegación principal">
-      <a href="#hero" class="nav-logo" aria-label="Digitali · Inicio">
-        <img src="assets/digitali-logo.svg" alt="">
-      </a>
-      <div class="nav-links">
-        <a href="#services">Servicios</a>
-        <a href="#achievements">Clientes</a>
-        <a href="#cases">Casos</a>
-        <a href="#why">Por qué elegirnos</a>
-        <a href="#cta" class="nav-cta">Hablemos<span aria-hidden="true"> →</span></a>
-        <button class="theme-toggle" id="themeToggle" aria-label="Cambiar a modo oscuro" aria-pressed="false">
-          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-            <circle cx="12" cy="12" r="4" />
-            <path
-              d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
-          </svg>
-          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-          </svg>
-        </button>
-        <button class="hamburger" id="navToggle" aria-label="Abrir menú" aria-expanded="false"
-          aria-controls="mobileMenu">
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-        </button>
-      </div>
-    </nav>
-  </header>
-
-  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
-    <div class="mobile-menu-links">
-      <a href="#services" tabindex="-1">Servicios</a>
-      <a href="#achievements" tabindex="-1">Clientes</a>
-      <a href="#cases" tabindex="-1">Casos</a>
-      <a href="#why" tabindex="-1">Por qué elegirnos</a>
-    </div>
-    <div class="mobile-menu-footer">
-      <a href="#cta" class="nav-cta" tabindex="-1">Hablemos<span aria-hidden="true"> →</span></a>
-    </div>
-  </div>
+  <!-- Shared nav + mobile menu (injected by js/partials.js) -->
+  <div data-include="header"></div>
 
   <main id="main">
 
@@ -188,7 +206,7 @@
             <span class="tag">Data Quality</span>
             <span class="tag">Advanced Analytics</span>
           </div>
-          <a href="#cta" class="service-cta">
+          <a href="services/data.html" class="service-cta">
             <span class="service-cta-label">Conocer más</span>
             <span class="service-cta-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -220,7 +238,7 @@
             <span class="tag">Agentes IA</span>
             <span class="tag">NLP</span>
           </div>
-          <a href="#cta" class="service-cta">
+          <a href="services/artificial-intelligence.html" class="service-cta">
             <span class="service-cta-label">Conocer más</span>
             <span class="service-cta-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -251,7 +269,7 @@
             <span class="tag">DevOps & QA</span>
             <span class="tag">Modernización</span>
           </div>
-          <a href="#cta" class="service-cta">
+          <a href="services/software-factory.html" class="service-cta">
             <span class="service-cta-label">Conocer más</span>
             <span class="service-cta-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -341,6 +359,9 @@
         </div>
       </article>
     </div>
+    <div class="how-cta reveal">
+      <a href="how-we-do-it.html" class="btn-primary">Conoce cómo lo hacemos<span aria-hidden="true"> →</span></a>
+    </div>
   </section>
 
   <!-- ACHIEVEMENTS / CLIENTES Y LOGROS -->
@@ -410,23 +431,23 @@
     <div class="clients-wall">
       <div class="client-tile">
         <span class="client-tile-bg" style="background-image: url('assets/clients-logo/bancodechile-bg.webp')"></span>
-        <img src="assets/clients-logo/bancodechile-logo.svg" alt="Banco de Chile">
+        <img loading="lazy" decoding="async" src="assets/clients-logo/bancodechile-logo.svg" alt="Banco de Chile">
       </div>
       <div class="client-tile">
         <span class="client-tile-bg" style="background-image: url('assets/clients-logo/colbun-bg.jpg')"></span>
-        <img src="assets/clients-logo/colbun-logo.svg" alt="Colbún">
+        <img loading="lazy" decoding="async" src="assets/clients-logo/colbun-logo.svg" alt="Colbún">
       </div>
       <div class="client-tile">
         <span class="client-tile-bg" style="background-image: url('assets/clients-logo/consorcio-bg.webp')"></span>
-        <img src="assets/clients-logo/consorcio-logo.webp" alt="Consorcio">
+        <img loading="lazy" decoding="async" src="assets/clients-logo/consorcio-logo.webp" alt="Consorcio">
       </div>
       <div class="client-tile">
         <span class="client-tile-bg" style="background-image: url('assets/clients-logo/confuturo-bg.jpg')"></span>
-        <img src="assets/clients-logo/confuturo-logo.svg" alt="Confuturo">
+        <img loading="lazy" decoding="async" src="assets/clients-logo/confuturo-logo.svg" alt="Confuturo">
       </div>
       <div class="client-tile">
         <span class="client-tile-bg" style="background-image: url('assets/clients-logo/dhl-bg.png')"></span>
-        <img src="assets/clients-logo/dhl-logo.svg" alt="DHL">
+        <img loading="lazy" decoding="async" src="assets/clients-logo/dhl-logo.svg" alt="DHL">
       </div>
       <div class="client-tile client-tile--gourmet">
         <span class="client-tile-bg" style="background-image: url('assets/clients-logo/gourmet-bg.jpg')"></span>
@@ -437,11 +458,11 @@
       </div>
       <div class="client-tile">
         <span class="client-tile-bg" style="background-image: url('assets/clients-logo/baic-bg.jpg')"></span>
-        <img src="assets/clients-logo/baic-logo.svg" alt="BAIC Latam">
+        <img loading="lazy" decoding="async" src="assets/clients-logo/baic-logo.svg" alt="BAIC Latam">
       </div>
       <div class="client-tile">
         <span class="client-tile-bg" style="background-image: url('assets/clients-logo/magna-bg.jpeg')"></span>
-        <img src="assets/clients-logo/magna-logo.png" alt="Magna">
+        <img loading="lazy" decoding="async" src="assets/clients-logo/magna-logo.png" alt="Magna">
       </div>
       <div class="client-tile client-tile--gatek">
         <span class="client-tile-bg" style="background-image: url('assets/clients-logo/gatek-bg.jpg')"></span>
@@ -461,11 +482,11 @@
       </div>
       <div class="client-tile">
         <span class="client-tile-bg" style="background-image: url('assets/clients-logo/globalchile-bg.webp')"></span>
-        <img src="assets/clients-logo/global-logo.svg" alt="Global" style="width: 170px">
+        <img loading="lazy" decoding="async" src="assets/clients-logo/global-logo.svg" alt="Global" style="width: 170px">
       </div>
       <div class="client-tile">
         <span class="client-tile-bg" style="background-image: url('assets/clients-logo/hdi-bg.webp')"></span>
-        <img src="assets/clients-logo/hdi-logo.png" alt="HDI" style="width: 90px">
+        <img loading="lazy" decoding="async" src="assets/clients-logo/hdi-logo.png" alt="HDI" style="width: 90px">
       </div>
       <a href="#cta" class="client-tile client-tile--cta">
         <span class="client-tile-cta-text">¿Trabajemos<br>juntos?</span>
@@ -689,13 +710,10 @@
 
   </main>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-logo"><img src="assets/digitali-logo.svg" alt="Digitali"></div>
-    <div>digitali.cl · Santiago, Chile · Data &amp; Software Factory desde 2016</div>
-    <div>© 2026 Digitali</div>
-  </footer>
+  <!-- Shared footer (injected by js/partials.js) -->
+  <div data-include="footer"></div>
 
+  <script src="js/partials.js"></script>
   <script src="js/script.js"></script>
 </body>
 
