@@ -98,6 +98,47 @@ nav {
   color: var(--white) !important;
 }
 
+/* ── LANGUAGE SWITCHER ── */
+.lang-switch {
+  display: inline-flex;
+  align-items: stretch;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+  font-family: var(--font-display);
+}
+.lang-switch button {
+  appearance: none;
+  background: transparent;
+  border: none;
+  padding: 0.35rem 0.7rem;
+  font-size: 0.72rem;
+  font-weight: var(--fw-bold);
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: background 0.22s var(--ease-smooth), color 0.22s var(--ease-smooth);
+}
+.lang-switch .lang-flag {
+  font-size: 0.95rem;
+  line-height: 1;
+}
+.lang-switch button:hover { color: var(--text-primary); }
+.lang-switch button[aria-pressed="true"] {
+  background: var(--text-primary);
+  color: var(--bg-primary);
+}
+.lang-switch button[aria-pressed="true"]:hover {
+  color: var(--bg-primary);
+}
+
+@media (max-width: 980px) {
+  .nav-links .lang-switch { display: none; }
+}
+
 /* ── SERVICES SUBMENU ── */
 .has-submenu {
   position: relative;
@@ -398,20 +439,25 @@ nav {
   border-bottom: none;
 }
 
+.mobile-menu-langwrap {
+  display: flex;
+  justify-content: center;
+  padding: 1.25rem 0;
+  width: 100%;
+}
+
 .mobile-menu-footer {
   padding-top: 1.5rem;
   border-top: 1px solid var(--border);
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  align-items: stretch;
   width: 100%;
 }
 
 .mobile-menu-footer .nav-cta {
-  flex-grow: 1;
+  flex: 1;
   text-align: center;
   padding: 0.8rem 1.25rem;
-  width: auto;
   font-size: var(--fs-md)!important;
   text-decoration: none !important;
 }
@@ -2511,9 +2557,9 @@ footer {
 
 }
 
-/* Switch to hamburger nav earlier (≤880px) to avoid the cramped state
+/* Switch to hamburger nav earlier (≤980px) to avoid the cramped state
    between ~720–840px where nav-links collide with the logo. */
-@media (max-width: 880px) {
+@media (max-width: 980px) {
   .hamburger {
     display: flex;
   }

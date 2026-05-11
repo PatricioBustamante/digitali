@@ -73,7 +73,7 @@
 
 <body>
 
-  <a href="#main" class="skip-link">Saltar al contenido principal</a>
+  <a href="#main" class="skip-link" data-i18n="skip.main">Saltar al contenido principal</a>
 
   <!-- Shared nav + mobile menu (injected by js/partials.js) -->
   <div data-include="header"></div>
@@ -81,8 +81,8 @@
   <main id="main">
 
   <!-- SCROLL HINT -->
-  <a href="#services" class="scroll-hint" id="scrollHint" aria-label="Bajar a la sección de servicios">
-    <span class="scroll-hint-label">Desliza para descubrir</span>
+  <a href="#services" class="scroll-hint" id="scrollHint" data-i18n-attr="aria-label:aria.scroll_services" aria-label="Bajar a la sección de servicios">
+    <span class="scroll-hint-label" data-i18n="hero.scroll_hint">Desliza para descubrir</span>
     <span class="scroll-hint-mouse" aria-hidden="true">
       <span class="scroll-hint-wheel"></span>
     </span>
@@ -103,36 +103,36 @@
 
     <div class="hero-content">
       <div class="hero-left">
-        <div class="hero-eyebrow">Data &amp; Software Factory · Desde 2016</div>
-        <h1 id="hero-title" class="hero-title">
+        <div class="hero-eyebrow" data-i18n="hero.eyebrow">Data &amp; Software Factory · Desde 2016</div>
+        <h1 id="hero-title" class="hero-title" data-i18n-html="hero.title">
           Tecnología que <em>resuelve.</em><br>Resultados que se miden.
         </h1>
-        <p class="hero-subtitle">
+        <p class="hero-subtitle" data-i18n="hero.subtitle">
           Construimos plataformas de datos, productos digitales e inteligencia artificial para empresas que quieren
           impacto real — no promesas.
         </p>
         <div class="hero-actions">
-          <a href="#cta" class="btn-primary">Iniciar proyecto<span aria-hidden="true"> →</span></a>
-          <a href="#cases" class="btn-ghost">Ver casos de éxito<span aria-hidden="true"> ↓</span></a>
+          <a href="#cta" class="btn-primary"><span data-i18n="hero.cta.start">Iniciar proyecto</span><span aria-hidden="true"> →</span></a>
+          <a href="#cases" class="btn-ghost"><span data-i18n="hero.cta.cases">Ver casos de éxito</span><span aria-hidden="true"> ↓</span></a>
         </div>
       </div>
       <div class="hero-right">
         <div class="hero-stats">
           <div class="stat-cell">
             <div class="stat-num"><span data-count="9" data-suffix="+">0</span></div>
-            <div class="stat-lbl">Años</div>
+            <div class="stat-lbl" data-i18n="hero.stats.years">Años</div>
           </div>
           <div class="stat-cell">
             <div class="stat-num"><span data-count="120" data-suffix="+">0</span></div>
-            <div class="stat-lbl">Proyectos</div>
+            <div class="stat-lbl" data-i18n="hero.stats.projects">Proyectos</div>
           </div>
           <div class="stat-cell">
             <div class="stat-num"><span data-count="25" data-suffix="+">0</span></div>
-            <div class="stat-lbl">Seniors</div>
+            <div class="stat-lbl" data-i18n="hero.stats.seniors">Seniors</div>
           </div>
           <div class="stat-cell">
             <div class="stat-num"><span data-count="95" data-suffix="%">0</span></div>
-            <div class="stat-lbl">NPS</div>
+            <div class="stat-lbl" data-i18n="hero.stats.retention">NPS</div>
           </div>
         </div>
       </div>
@@ -142,10 +142,10 @@
   <!-- MARQUEE -->
   <div class="marquee-wrap" aria-hidden="true">
     <div class="marquee-track">
-      <span class="marquee-item accent">· Datos</span>
+      <span class="marquee-item accent"><span data-i18n="marquee.data">· Datos</span></span>
       <span class="marquee-item">Data Strategy</span>
       <span class="marquee-item">Data Factory</span>
-      <span class="marquee-item accent">· IA</span>
+      <span class="marquee-item accent"><span data-i18n="marquee.ai">· IA</span></span>
       <span class="marquee-item">Machine Learning</span>
       <span class="marquee-item">GenAI</span>
       <span class="marquee-item accent">· Software</span>
@@ -158,10 +158,10 @@
       <span class="marquee-item">AWS</span>
       <span class="marquee-item">Azure</span>
       <span class="marquee-item">GCP</span>
-      <span class="marquee-item accent">· Datos</span>
+      <span class="marquee-item accent"><span data-i18n="marquee.data">· Datos</span></span>
       <span class="marquee-item">Data Strategy</span>
       <span class="marquee-item">Data Factory</span>
-      <span class="marquee-item accent">· IA</span>
+      <span class="marquee-item accent"><span data-i18n="marquee.ai">· IA</span></span>
       <span class="marquee-item">Machine Learning</span>
       <span class="marquee-item">GenAI</span>
       <span class="marquee-item accent">· Software</span>
@@ -180,9 +180,9 @@
   <!-- SERVICES -->
   <section id="services" aria-labelledby="services-title">
     <div class="services-header reveal">
-      <div class="section-eyebrow">Servicios</div>
-      <h2 id="services-title" class="section-title">Tres verticales,<br><em>un solo equipo.</em></h2>
-      <p class="section-sub">Capacidades end-to-end para que el dato y el software sean activos estratégicos de tu
+      <div class="section-eyebrow" data-i18n="services.eyebrow">Servicios</div>
+      <h2 id="services-title" class="section-title" data-i18n-html="services.title">Tres verticales,<br><em>un solo equipo.</em></h2>
+      <p class="section-sub" data-i18n="services.sub">Capacidades end-to-end para que el dato y el software sean activos estratégicos de tu
         empresa.</p>
     </div>
     <div class="services-grid">
@@ -193,11 +193,11 @@
           <span class="service-media-orb"></span>
           <div class="service-media-icon" aria-hidden="true">◈</div>
           <div class="service-media-overlay">
-            <h3 class="service-name">Datos</h3>
+            <h3 class="service-name" data-i18n="submenu.data.title">Datos</h3>
           </div>
         </div>
         <div class="service-body">
-          <p class="service-desc">Arquitecturas modernas para la gestión eficiente de datos. Desde la estrategia hasta la
+          <p class="service-desc" data-i18n="services.data.desc">Arquitecturas modernas para la gestión eficiente de datos. Desde la estrategia hasta la
             calidad y gobierno.</p>
           <div class="service-tags">
             <span class="tag">Data Strategy</span>
@@ -207,7 +207,7 @@
             <span class="tag">Advanced Analytics</span>
           </div>
           <a href="services/data.html" class="service-cta">
-            <span class="service-cta-label">Conocer más</span>
+            <span class="service-cta-label" data-i18n="services.cta_more">Conocer más</span>
             <span class="service-cta-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                 stroke-linecap="round" stroke-linejoin="round">
@@ -225,21 +225,21 @@
           <span class="service-media-orb"></span>
           <div class="service-media-icon" aria-hidden="true">◉</div>
           <div class="service-media-overlay">
-            <h3 class="service-name">Inteligencia Artificial</h3>
+            <h3 class="service-name" data-i18n="submenu.ai.title">Inteligencia Artificial</h3>
           </div>
         </div>
         <div class="service-body">
-          <p class="service-desc">IA aplicada para automatizar, predecir y ganar ventaja competitiva. ML, GenAI y agentes
+          <p class="service-desc" data-i18n="services.ai.desc">IA aplicada para automatizar, predecir y ganar ventaja competitiva. ML, GenAI y agentes
             inteligentes.</p>
           <div class="service-tags">
-            <span class="tag">Modelos ML</span>
+            <span class="tag" data-i18n="services.ai.tag1">Modelos ML</span>
             <span class="tag">GenAI</span>
-            <span class="tag">Automatización</span>
-            <span class="tag">Agentes IA</span>
+            <span class="tag" data-i18n="services.ai.tag3">Automatización</span>
+            <span class="tag" data-i18n="services.ai.tag4">Agentes IA</span>
             <span class="tag">NLP</span>
           </div>
           <a href="services/artificial-intelligence.html" class="service-cta">
-            <span class="service-cta-label">Conocer más</span>
+            <span class="service-cta-label" data-i18n="services.cta_more">Conocer más</span>
             <span class="service-cta-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                 stroke-linecap="round" stroke-linejoin="round">
@@ -257,20 +257,20 @@
           <span class="service-media-orb"></span>
           <div class="service-media-icon" aria-hidden="true">◧</div>
           <div class="service-media-overlay">
-            <h3 class="service-name">Software Factory</h3>
+            <h3 class="service-name" data-i18n="submenu.sw.title">Software Factory</h3>
           </div>
         </div>
         <div class="service-body">
-          <p class="service-desc">Productos digitales a medida con foco en escalabilidad y UX. Equipos ágiles integrados
+          <p class="service-desc" data-i18n="services.sw.desc">Productos digitales a medida con foco en escalabilidad y UX. Equipos ágiles integrados
             como extensión de tu empresa.</p>
           <div class="service-tags">
             <span class="tag">Full-Stack</span>
-            <span class="tag">Equipos ágiles</span>
+            <span class="tag" data-i18n="services.sw.tag2">Equipos ágiles</span>
             <span class="tag">DevOps & QA</span>
-            <span class="tag">Modernización</span>
+            <span class="tag" data-i18n="services.sw.tag4">Modernización</span>
           </div>
           <a href="services/software-factory.html" class="service-cta">
-            <span class="service-cta-label">Conocer más</span>
+            <span class="service-cta-label" data-i18n="services.cta_more">Conocer más</span>
             <span class="service-cta-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                 stroke-linecap="round" stroke-linejoin="round">
@@ -287,15 +287,15 @@
   <!-- HOW -->
   <section id="how" aria-labelledby="how-title">
     <div class="how-header reveal">
-      <div class="section-eyebrow">Metodología</div>
-      <h2 id="how-title" class="section-title">Cómo lo <em>hacemos.</em></h2>
-      <p class="section-sub">Seis etapas ágiles. Entregas cada 2 semanas. Validación continua contigo en cada paso.</p>
+      <div class="section-eyebrow" data-i18n="how.eyebrow">Metodología</div>
+      <h2 id="how-title" class="section-title" data-i18n-html="how.title">Cómo lo <em>hacemos.</em></h2>
+      <p class="section-sub" data-i18n="how.sub">Seis etapas ágiles. Entregas cada 2 semanas. Validación continua contigo en cada paso.</p>
       <div class="how-tag">
         <span class="how-tag-dot" aria-hidden="true"></span>
-        El orden se adapta a las necesidades de cada proyecto
+        <span data-i18n="how.tag_note">El orden se adapta a las necesidades de cada proyecto</span>
       </div>
     </div>
-    <div class="steps-flow reveal" id="stepsFlow" aria-label="Etapas del proyecto, orden adaptable">
+    <div class="steps-flow reveal" id="stepsFlow" data-i18n-attr="aria-label:aria.steps_flow" aria-label="Etapas del proyecto, orden adaptable">
       <span class="steps-flow-glow steps-flow-glow-1" aria-hidden="true"></span>
       <span class="steps-flow-glow steps-flow-glow-2" aria-hidden="true"></span>
       <article class="step-chip">
@@ -304,8 +304,8 @@
             <span class="step-chip-num" aria-hidden="true">01</span>
             <span class="step-chip-pulse" aria-hidden="true"></span>
           </div>
-          <h3 class="step-chip-name">Descubrimiento</h3>
-          <p class="step-chip-desc">Entendemos el problema y definimos el alcance real.</p>
+          <h3 class="step-chip-name" data-i18n="how.step.1.name">Descubrimiento</h3>
+          <p class="step-chip-desc" data-i18n="how.step.1.desc">Entendemos el problema y definimos el alcance real.</p>
         </div>
       </article>
       <article class="step-chip">
@@ -314,8 +314,8 @@
             <span class="step-chip-num" aria-hidden="true">02</span>
             <span class="step-chip-pulse" aria-hidden="true"></span>
           </div>
-          <h3 class="step-chip-name">Exploración &amp; Diseño</h3>
-          <p class="step-chip-desc">Arquitectura y UX antes de escribir una línea de código.</p>
+          <h3 class="step-chip-name" data-i18n="how.step.2.name">Exploración &amp; Diseño</h3>
+          <p class="step-chip-desc" data-i18n="how.step.2.desc">Arquitectura y UX antes de escribir una línea de código.</p>
         </div>
       </article>
       <article class="step-chip">
@@ -324,8 +324,8 @@
             <span class="step-chip-num" aria-hidden="true">03</span>
             <span class="step-chip-pulse" aria-hidden="true"></span>
           </div>
-          <h3 class="step-chip-name">Planificación Ágil</h3>
-          <p class="step-chip-desc">Roadmap priorizado por valor de negocio.</p>
+          <h3 class="step-chip-name" data-i18n="how.step.3.name">Planificación Ágil</h3>
+          <p class="step-chip-desc" data-i18n="how.step.3.desc">Roadmap priorizado por valor de negocio.</p>
         </div>
       </article>
       <article class="step-chip">
@@ -334,8 +334,8 @@
             <span class="step-chip-num" aria-hidden="true">04</span>
             <span class="step-chip-pulse" aria-hidden="true"></span>
           </div>
-          <h3 class="step-chip-name">Construcción</h3>
-          <p class="step-chip-desc">Sprints de 2 semanas con demos reales.</p>
+          <h3 class="step-chip-name" data-i18n="how.step.4.name">Construcción</h3>
+          <p class="step-chip-desc" data-i18n="how.step.4.desc">Sprints de 2 semanas con demos reales.</p>
         </div>
       </article>
       <article class="step-chip">
@@ -344,8 +344,8 @@
             <span class="step-chip-num" aria-hidden="true">05</span>
             <span class="step-chip-pulse" aria-hidden="true"></span>
           </div>
-          <h3 class="step-chip-name">Despliegue</h3>
-          <p class="step-chip-desc">Go-live con acompañamiento y monitoreo proactivo.</p>
+          <h3 class="step-chip-name" data-i18n="how.step.5.name">Despliegue</h3>
+          <p class="step-chip-desc" data-i18n="how.step.5.desc">Go-live con acompañamiento y monitoreo proactivo.</p>
         </div>
       </article>
       <article class="step-chip">
@@ -354,13 +354,13 @@
             <span class="step-chip-num" aria-hidden="true">06</span>
             <span class="step-chip-pulse" aria-hidden="true"></span>
           </div>
-          <h3 class="step-chip-name">Evolución continua</h3>
-          <p class="step-chip-desc">Mejora iterativa post-lanzamiento. Somos tu equipo.</p>
+          <h3 class="step-chip-name" data-i18n="how.step.6.name">Evolución continua</h3>
+          <p class="step-chip-desc" data-i18n="how.step.6.desc">Mejora iterativa post-lanzamiento. Somos tu equipo.</p>
         </div>
       </article>
     </div>
     <div class="how-cta reveal">
-      <a href="how-we-do-it.html" class="btn-primary">Conoce cómo lo hacemos<span aria-hidden="true"> →</span></a>
+      <a href="how-we-do-it.html" class="btn-primary"><span data-i18n="how.cta_button">Conoce cómo lo hacemos</span><span aria-hidden="true"> →</span></a>
     </div>
   </section>
 
@@ -368,10 +368,10 @@
   <section id="achievements" aria-labelledby="achievements-title">
     <div class="achievements-header">
       <div class="reveal">
-        <div class="section-eyebrow">Clientes &amp; Logros</div>
-        <h2 id="achievements-title" class="section-title">Resultados que <em>hablan<br>por nosotros.</em></h2>
+        <div class="section-eyebrow" data-i18n="achievements.eyebrow">Clientes &amp; Logros</div>
+        <h2 id="achievements-title" class="section-title" data-i18n-html="achievements.title">Resultados que <em>hablan<br>por nosotros.</em></h2>
       </div>
-      <div class="achievements-header-right reveal reveal-delay-1">
+      <div class="achievements-header-right reveal reveal-delay-1" data-i18n="achievements.intro">
         Cada número representa un equipo que confió, un proceso que funcionó y un negocio que avanzó. Hemos trabajado
         con empresas líderes en banca, energía, logística, seguros e industria.
       </div>
@@ -383,25 +383,25 @@
         <div class="achievement-number">
           <span class="prefix">+$</span><span class="num" data-count="300">0</span><span class="suffix">MM</span>
         </div>
-        <div class="achievement-label">USD en valor generado<br>para nuestros clientes</div>
+        <div class="achievement-label" data-i18n-html="achievements.num1.label">USD en valor generado<br>para nuestros clientes</div>
       </div>
       <div class="achievement-cell" data-animate>
         <div class="achievement-number">
           <span class="prefix">−</span><span class="num" data-count="35">0</span><span class="suffix">%</span>
         </div>
-        <div class="achievement-label">Costo promedio<br>de operación reducido</div>
+        <div class="achievement-label" data-i18n-html="achievements.num2.label">Costo promedio<br>de operación reducido</div>
       </div>
       <div class="achievement-cell" data-animate>
         <div class="achievement-number">
           <span class="num" data-count="4">0</span><span class="suffix">×</span>
         </div>
-        <div class="achievement-label">Aceleración promedio<br>en procesos de negocio</div>
+        <div class="achievement-label" data-i18n-html="achievements.num3.label">Aceleración promedio<br>en procesos de negocio</div>
       </div>
       <div class="achievement-cell" data-animate>
         <div class="achievement-number">
           <span class="num" data-count="99" data-decimal="9">0</span><span class="suffix">%</span>
         </div>
-        <div class="achievement-label">Uptime promedio<br>en plataformas críticas</div>
+        <div class="achievement-label" data-i18n-html="achievements.num4.label">Uptime promedio<br>en plataformas críticas</div>
       </div>
     </div>
 
@@ -410,24 +410,24 @@
       <div class="highlight-card reveal">
         <div class="highlight-icon">01</div>
         <div class="highlight-value"><span data-count="120" data-suffix="+">0</span></div>
-        <p class="highlight-text">Proyectos entregados con resultados medibles en industrias reguladas y de alta
+        <p class="highlight-text" data-i18n="highlight.1.text">Proyectos entregados con resultados medibles en industrias reguladas y de alta
           complejidad operacional.</p>
       </div>
       <div class="highlight-card reveal reveal-delay-1">
         <div class="highlight-icon">02</div>
         <div class="highlight-value"><span data-count="30" data-suffix="+">0</span></div>
-        <p class="highlight-text">Clientes activos que escalan con nosotros como partner tecnológico de largo plazo.</p>
+        <p class="highlight-text" data-i18n="highlight.2.text">Clientes activos que escalan con nosotros como partner tecnológico de largo plazo.</p>
       </div>
       <div class="highlight-card reveal reveal-delay-2">
         <div class="highlight-icon">03</div>
         <div class="highlight-value"><span data-count="120" data-suffix="+">0</span></div>
-        <p class="highlight-text">Modelos de IA en producción generando valor diariamente para empresas en operación
+        <p class="highlight-text" data-i18n="highlight.3.text">Modelos de IA en producción generando valor diariamente para empresas en operación
           real.</p>
       </div>
     </div>
 
     <!-- Clients wall -->
-    <div class="clients-band-title">Empresas que confían en Digitali</div>
+    <div class="clients-band-title" data-i18n="clients.band_title">Empresas que confían en Digitali</div>
     <div class="clients-wall">
       <div class="client-tile">
         <span class="client-tile-bg" style="background-image: url('assets/clients-logo/bancodechile-bg.webp')"></span>
@@ -489,7 +489,7 @@
         <img loading="lazy" decoding="async" src="assets/clients-logo/hdi-logo.png" alt="HDI" style="width: 90px">
       </div>
       <a href="#cta" class="client-tile client-tile--cta">
-        <span class="client-tile-cta-text">¿Trabajemos<br>juntos?</span>
+        <span class="client-tile-cta-text" data-i18n-html="clients.cta_text">¿Trabajemos<br>juntos?</span>
         <span class="client-tile-cta-arrow">→</span>
       </a>
     </div>
@@ -498,34 +498,34 @@
   <!-- CASES -->
   <section id="cases" aria-labelledby="cases-title">
     <div class="reveal">
-      <div class="section-eyebrow">Casos de éxito</div>
-      <h2 id="cases-title" class="section-title">Proyectos que <em>marcan diferencia.</em></h2>
-      <p class="section-sub">Una muestra de los proyectos que han transformado operaciones, decisiones y negocios.</p>
+      <div class="section-eyebrow" data-i18n="cases.eyebrow">Casos de éxito</div>
+      <h2 id="cases-title" class="section-title" data-i18n-html="cases.title">Proyectos que <em>marcan diferencia.</em></h2>
+      <p class="section-sub" data-i18n="cases.sub">Una muestra de los proyectos que han transformado operaciones, decisiones y negocios.</p>
     </div>
     <div class="cases-grid">
       <div class="case-card reveal reveal-delay-1">
         <div class="case-header">
-          <div class="case-industry">Banca · Datos y Software</div>
+          <div class="case-industry" data-i18n="case.1.industry">Banca · Datos y Software</div>
           <div class="case-client">Banco de Chile</div>
-          <div class="case-project">Plataforma de riesgo moderna — +2,7M clientes</div>
+          <div class="case-project" data-i18n="case.1.project">Plataforma de riesgo moderna — +2,7M clientes</div>
         </div>
         <div class="case-body">
           <div class="case-metrics">
             <div class="metric">
               <div class="metric-val">−65%</div>
-              <div class="metric-lbl">tiempo proceso riesgo</div>
+              <div class="metric-lbl" data-i18n="case.1.metric1">tiempo proceso riesgo</div>
             </div>
             <div class="metric">
               <div class="metric-val">$2.1M</div>
-              <div class="metric-lbl">USD ahorro anual</div>
+              <div class="metric-lbl" data-i18n="case.1.metric2">USD ahorro anual</div>
             </div>
             <div class="metric">
               <div class="metric-val">99.95%</div>
-              <div class="metric-lbl">disponibilidad</div>
+              <div class="metric-lbl" data-i18n="case.1.metric3">disponibilidad</div>
             </div>
             <div class="metric">
               <div class="metric-val">+12</div>
-              <div class="metric-lbl">dominios gobernados</div>
+              <div class="metric-lbl" data-i18n="case.1.metric4">dominios gobernados</div>
             </div>
           </div>
           <div class="case-caps">
@@ -538,27 +538,27 @@
       </div>
       <div class="case-card reveal reveal-delay-2">
         <div class="case-header">
-          <div class="case-industry">Logística · Datos + IA</div>
+          <div class="case-industry" data-i18n="case.2.industry">Logística · Datos + IA</div>
           <div class="case-client">DHL</div>
-          <div class="case-project">Optimización procesos de internación — 220 países</div>
+          <div class="case-project" data-i18n="case.2.project">Optimización procesos de internación — 220 países</div>
         </div>
         <div class="case-body">
           <div class="case-metrics">
             <div class="metric">
               <div class="metric-val">−32%</div>
-              <div class="metric-lbl">quiebres de stock</div>
+              <div class="metric-lbl" data-i18n="case.2.metric1">quiebres de stock</div>
             </div>
             <div class="metric">
               <div class="metric-val">+14%</div>
-              <div class="metric-lbl">margen con clientes</div>
+              <div class="metric-lbl" data-i18n="case.2.metric2">margen con clientes</div>
             </div>
             <div class="metric">
               <div class="metric-val">−19%</div>
-              <div class="metric-lbl">tiempos end-to-end</div>
+              <div class="metric-lbl" data-i18n="case.2.metric3">tiempos end-to-end</div>
             </div>
             <div class="metric">
-              <div class="metric-val">2 días</div>
-              <div class="metric-lbl">mejora promedio</div>
+              <div class="metric-val" data-i18n="case.2.metric4_val">2 días</div>
+              <div class="metric-lbl" data-i18n="case.2.metric4">mejora promedio</div>
             </div>
           </div>
           <div class="case-caps">
@@ -570,27 +570,27 @@
       </div>
       <div class="case-card reveal reveal-delay-3">
         <div class="case-header">
-          <div class="case-industry">Energía · Datos</div>
+          <div class="case-industry" data-i18n="case.3.industry">Energía · Datos</div>
           <div class="case-client">Colbún</div>
-          <div class="case-project">Gobierno de datos y estrategia — +25 centrales</div>
+          <div class="case-project" data-i18n="case.3.project">Gobierno de datos y estrategia — +25 centrales</div>
         </div>
         <div class="case-body">
           <div class="case-metrics">
             <div class="metric">
               <div class="metric-val">+35%</div>
-              <div class="metric-lbl">calidad de datos</div>
+              <div class="metric-lbl" data-i18n="case.3.metric1">calidad de datos</div>
             </div>
             <div class="metric">
               <div class="metric-val">+50%</div>
-              <div class="metric-lbl">activos gobernados</div>
+              <div class="metric-lbl" data-i18n="case.3.metric2">activos gobernados</div>
             </div>
             <div class="metric">
               <div class="metric-val">−40%</div>
-              <div class="metric-lbl">tiempo acceso info</div>
+              <div class="metric-lbl" data-i18n="case.3.metric3">tiempo acceso info</div>
             </div>
             <div class="metric">
               <div class="metric-val">−30%</div>
-              <div class="metric-lbl">incidencias datos</div>
+              <div class="metric-lbl" data-i18n="case.3.metric4">incidencias datos</div>
             </div>
           </div>
           <div class="case-caps">
@@ -606,37 +606,37 @@
   <!-- WHY -->
   <section id="why" aria-labelledby="why-title">
     <div class="why-left">
-      <div class="section-eyebrow reveal">Por qué elegirnos</div>
-      <h2 id="why-title" class="section-title reveal">No entregamos<br>proyectos.<br><em>Construimos<br>resultados.</em></h2>
+      <div class="section-eyebrow reveal" data-i18n="why.eyebrow">Por qué elegirnos</div>
+      <h2 id="why-title" class="section-title reveal" data-i18n-html="why.title">No entregamos<br>proyectos.<br><em>Construimos<br>resultados.</em></h2>
       <div class="reasons-list">
         <div class="reason reveal">
           <div class="reason-num">01</div>
           <div>
-            <div class="reason-title">Experiencia real en terreno</div>
-            <p class="reason-desc">Líderes con más de 10 años en proyectos de impacto real en banca, retail, energía y
+            <div class="reason-title" data-i18n="why.reason.1.title">Experiencia real en terreno</div>
+            <p class="reason-desc" data-i18n="why.reason.1.desc">Líderes con más de 10 años en proyectos de impacto real en banca, retail, energía y
               minería.</p>
           </div>
         </div>
         <div class="reason reveal reveal-delay-1">
           <div class="reason-num">02</div>
           <div>
-            <div class="reason-title">Hands-on, no solo slides</div>
-            <p class="reason-desc">Equipos senior que ejecutan. No consultores que recomiendan y se van.</p>
+            <div class="reason-title" data-i18n="why.reason.2.title">Hands-on, no solo slides</div>
+            <p class="reason-desc" data-i18n="why.reason.2.desc">Equipos senior que ejecutan. No consultores que recomiendan y se van.</p>
           </div>
         </div>
         <div class="reason reveal reveal-delay-2">
           <div class="reason-num">03</div>
           <div>
-            <div class="reason-title">Foco en el negocio</div>
-            <p class="reason-desc">Todo se mide por el valor que desbloquea para tu empresa. La tecnología es el medio,
+            <div class="reason-title" data-i18n="why.reason.3.title">Foco en el negocio</div>
+            <p class="reason-desc" data-i18n="why.reason.3.desc">Todo se mide por el valor que desbloquea para tu empresa. La tecnología es el medio,
               no el fin.</p>
           </div>
         </div>
         <div class="reason reveal reveal-delay-3">
           <div class="reason-num">04</div>
           <div>
-            <div class="reason-title">Partner de largo plazo</div>
-            <p class="reason-desc">Acompañamos la evolución de tu producto, no solo el go-live. Somos tu equipo
+            <div class="reason-title" data-i18n="why.reason.4.title">Partner de largo plazo</div>
+            <p class="reason-desc" data-i18n="why.reason.4.desc">Acompañamos la evolución de tu producto, no solo el go-live. Somos tu equipo
               extendido.</p>
           </div>
         </div>
@@ -645,25 +645,25 @@
     <div class="why-right reveal">
       <blockquote class="why-quote">
         <div class="quote-mark" aria-hidden="true">"</div>
-        <p class="quote-text">Resolver problemas complejos con soluciones simples, útiles y bien hechas.</p>
-        <footer class="quote-source">Nuestro código · Digitali</footer>
+        <p class="quote-text" data-i18n="why.quote">Resolver problemas complejos con soluciones simples, útiles y bien hechas.</p>
+        <footer class="quote-source" data-i18n="why.quote_source">Nuestro código · Digitali</footer>
       </blockquote>
       <div class="why-numbers">
         <div class="why-num-cell">
           <div class="why-num-val">+$<span data-count="300">0</span><span>MM</span></div>
-          <div class="why-num-lbl">USD en valor</div>
+          <div class="why-num-lbl" data-i18n="why.num.1">USD en valor</div>
         </div>
         <div class="why-num-cell">
           <div class="why-num-val"><span data-count="4">0</span><span>×</span></div>
-          <div class="why-num-lbl">aceleración</div>
+          <div class="why-num-lbl" data-i18n="why.num.2">aceleración</div>
         </div>
         <div class="why-num-cell">
           <div class="why-num-val">−<span data-count="35">0</span><span>%</span></div>
-          <div class="why-num-lbl">costo operación</div>
+          <div class="why-num-lbl" data-i18n="why.num.3">costo operación</div>
         </div>
         <div class="why-num-cell">
           <div class="why-num-val">+<span data-count="120">0</span></div>
-          <div class="why-num-lbl">modelos en prod</div>
+          <div class="why-num-lbl" data-i18n="why.num.4">modelos en prod</div>
         </div>
       </div>
     </div>
@@ -671,39 +671,39 @@
 
   <!-- CTA -->
   <section id="cta" aria-labelledby="cta-title">
-    <h2 id="cta-title" class="section-title">Hagamos algo<br>que funcione.</h2>
-    <p class="section-sub">Conversemos sobre tu desafío. Sin compromiso, con foco en resultados.</p>
+    <h2 id="cta-title" class="section-title" data-i18n-html="cta.title">Hagamos algo<br>que funcione.</h2>
+    <p class="section-sub" data-i18n="cta.sub">Conversemos sobre tu desafío. Sin compromiso, con foco en resultados.</p>
 
-    <form class="cta-form" id="ctaForm" novalidate aria-label="Formulario de contacto">
+    <form class="cta-form" id="ctaForm" novalidate data-i18n-attr="aria-label:cta.form_aria" aria-label="Formulario de contacto">
       <div class="cta-form-row">
         <div class="cta-field">
-          <label for="cta-name">Nombre</label>
-          <input id="cta-name" name="name" type="text" autocomplete="name" required placeholder="Tu nombre completo">
+          <label for="cta-name" data-i18n="cta.name_label">Nombre</label>
+          <input id="cta-name" name="name" type="text" autocomplete="name" required data-i18n-attr="placeholder:cta.name_placeholder" placeholder="Tu nombre completo">
         </div>
         <div class="cta-field">
-          <label for="cta-email">Correo electrónico</label>
-          <input id="cta-email" name="email" type="email" autocomplete="email" required placeholder="tu@empresa.com">
+          <label for="cta-email" data-i18n="cta.email_label">Correo electrónico</label>
+          <input id="cta-email" name="email" type="email" autocomplete="email" required data-i18n-attr="placeholder:cta.email_placeholder" placeholder="tu@empresa.com">
         </div>
       </div>
 
       <div class="cta-form-row">
         <div class="cta-field">
-          <label for="cta-phone">Teléfono</label>
-          <input id="cta-phone" name="phone" type="tel" autocomplete="tel" placeholder="+56 9 0000 0000">
+          <label for="cta-phone" data-i18n="cta.phone_label">Teléfono</label>
+          <input id="cta-phone" name="phone" type="tel" autocomplete="tel" data-i18n-attr="placeholder:cta.phone_placeholder" placeholder="+56 9 0000 0000">
         </div>
         <div class="cta-field">
-          <label for="cta-company">Empresa</label>
-          <input id="cta-company" name="company" type="text" autocomplete="organization" placeholder="Nombre de tu empresa">
+          <label for="cta-company" data-i18n="cta.company_label">Empresa</label>
+          <input id="cta-company" name="company" type="text" autocomplete="organization" data-i18n-attr="placeholder:cta.company_placeholder" placeholder="Nombre de tu empresa">
         </div>
       </div>
 
       <div class="cta-field cta-field--full">
-        <label for="cta-message">Mensaje</label>
-        <textarea id="cta-message" name="message" rows="4" required placeholder="Cuéntanos brevemente sobre tu desafío"></textarea>
+        <label for="cta-message" data-i18n="cta.message_label">Mensaje</label>
+        <textarea id="cta-message" name="message" rows="4" required data-i18n-attr="placeholder:cta.message_placeholder" placeholder="Cuéntanos brevemente sobre tu desafío"></textarea>
       </div>
 
       <button type="submit" class="btn-white cta-form-submit">
-        Enviar mensaje<span aria-hidden="true"> →</span>
+        <span data-i18n="cta.submit">Enviar mensaje</span><span aria-hidden="true"> →</span>
       </button>
     </form>
   </section>
@@ -714,6 +714,7 @@
   <div data-include="footer"></div>
 
   <script src="js/partials.js"></script>
+  <script src="js/i18n.js"></script>
   <script src="js/script.js"></script>
 </body>
 

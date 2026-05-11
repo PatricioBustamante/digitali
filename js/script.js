@@ -7,9 +7,10 @@ function syncThemeToggleAria() {
   const current = html.getAttribute('data-theme') || 'light';
   const isDark = current === 'dark';
   themeToggle.setAttribute('aria-pressed', String(isDark));
+  const t = (window.digitaliI18n && window.digitaliI18n.t) || (k => k);
   themeToggle.setAttribute(
     'aria-label',
-    isDark ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'
+    isDark ? t('nav.theme_to_light') : t('nav.theme_to_dark')
   );
 }
 
@@ -41,7 +42,8 @@ function setMenuState(isOpen) {
   navToggle.classList.toggle('active', isOpen);
   mobileMenu.classList.toggle('active', isOpen);
   navToggle.setAttribute('aria-expanded', String(isOpen));
-  navToggle.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
+  const t = (window.digitaliI18n && window.digitaliI18n.t) || (k => k);
+  navToggle.setAttribute('aria-label', isOpen ? t('nav.menu_close') : t('nav.menu_open'));
   mobileMenu.setAttribute('aria-hidden', String(!isOpen));
   document.body.style.overflow = isOpen ? 'hidden' : '';
   mobileFocusables.forEach(el => {
@@ -53,6 +55,13 @@ function setMenuState(isOpen) {
 function closeMenu() {
   setMenuState(false);
 }
+
+document.addEventListener('digitali:langchange', () => {
+  syncThemeToggleAria();
+  if (navToggle && mobileMenu) {
+    setMenuState(mobileMenu.classList.contains('active'));
+  }
+});
 
 navToggle.addEventListener('click', () => {
   const isOpen = !mobileMenu.classList.contains('active');

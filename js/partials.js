@@ -8,23 +8,30 @@
   var headerHTML =
     '<header>' +
       '<nav aria-label="Navegación principal">' +
-        '<a href="' + base + 'index.html" class="nav-logo" aria-label="Digitali · Inicio">' +
+        '<a href="' + base + 'index.html" class="nav-logo" data-i18n-attr="aria-label:nav.logo_aria" aria-label="Digitali · Inicio">' +
           '<img src="' + base + 'assets/digitali-logo.svg" alt="">' +
         '</a>' +
         '<div class="nav-links">' +
           '<div class="has-submenu">' +
-            '<a href="' + base + 'index.html#services" class="submenu-trigger" aria-haspopup="true" aria-expanded="false">Servicios<span class="submenu-chevron" aria-hidden="true"></span></a>' +
-            '<ul class="submenu" role="menu">' +
-              '<li role="none"><a role="menuitem" href="' + base + 'services/data.html"><span class="submenu-title">Datos</span><span class="submenu-desc">Arquitectura, gobierno, calidad y analítica</span></a></li>' +
-              '<li role="none"><a role="menuitem" href="' + base + 'services/artificial-intelligence.html"><span class="submenu-title">Inteligencia Artificial</span><span class="submenu-desc">ML, GenAI y agentes en producción</span></a></li>' +
-              '<li role="none"><a role="menuitem" href="' + base + 'services/software-factory.html"><span class="submenu-title">Software Factory</span><span class="submenu-desc">Productos digitales potenciados por IA</span></a></li>' +
+            '<a href="' + base + 'index.html#services" class="submenu-trigger" aria-haspopup="true" aria-expanded="false" data-i18n-attr="aria-label:submenu.aria" aria-label="Mostrar servicios">' +
+              '<span data-i18n="nav.services">Servicios</span>' +
+              '<span class="submenu-chevron" aria-hidden="true"></span>' +
+            '</a>' +
+            '<ul class="submenu">' +
+              '<li><a href="' + base + 'services/data.html"><span class="submenu-title" data-i18n="submenu.data.title">Datos</span><span class="submenu-desc" data-i18n="submenu.data.desc">Arquitectura, gobierno, calidad y analítica</span></a></li>' +
+              '<li><a href="' + base + 'services/artificial-intelligence.html"><span class="submenu-title" data-i18n="submenu.ai.title">Inteligencia Artificial</span><span class="submenu-desc" data-i18n="submenu.ai.desc">ML, GenAI y agentes en producción</span></a></li>' +
+              '<li><a href="' + base + 'services/software-factory.html"><span class="submenu-title" data-i18n="submenu.sw.title">Software Factory</span><span class="submenu-desc" data-i18n="submenu.sw.desc">Productos digitales potenciados por IA</span></a></li>' +
             '</ul>' +
           '</div>' +
-          '<a href="' + base + 'index.html#achievements">Clientes</a>' +
-          '<a href="' + base + 'index.html#cases">Casos</a>' +
-          '<a href="' + base + 'index.html#why">Por qué elegirnos</a>' +
-          '<a href="' + base + 'index.html#cta" class="nav-cta">Hablemos<span aria-hidden="true"> →</span></a>' +
-          '<button class="theme-toggle" id="themeToggle" aria-label="Cambiar a modo oscuro" aria-pressed="false">' +
+          '<a href="' + base + 'index.html#achievements" data-i18n="nav.clients">Clientes</a>' +
+          '<a href="' + base + 'index.html#cases" data-i18n="nav.cases">Casos</a>' +
+          '<a href="' + base + 'index.html#why" data-i18n="nav.why">Por qué elegirnos</a>' +
+          '<a href="' + base + 'index.html#cta" class="nav-cta"><span data-i18n="nav.contact">Hablemos</span><span aria-hidden="true"> →</span></a>' +
+          '<div class="lang-switch" role="group" aria-label="Language">' +
+            '<button type="button" data-lang-switch="es" aria-pressed="true" data-i18n-attr="aria-label:lang.switch_to_es" aria-label="Cambiar a español"><span class="lang-flag" aria-hidden="true">🇨🇱</span><span>ES</span></button>' +
+            '<button type="button" data-lang-switch="en" aria-pressed="false" data-i18n-attr="aria-label:lang.switch_to_en" aria-label="Switch to English"><span class="lang-flag" aria-hidden="true">🇺🇸</span><span>EN</span></button>' +
+          '</div>' +
+          '<button class="theme-toggle" id="themeToggle" data-i18n-attr="aria-label:nav.theme_to_dark" aria-label="Cambiar a modo oscuro" aria-pressed="false">' +
             '<svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">' +
               '<circle cx="12" cy="12" r="4" />' +
               '<path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />' +
@@ -33,7 +40,7 @@
               '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />' +
             '</svg>' +
           '</button>' +
-          '<button class="hamburger" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">' +
+          '<button class="hamburger" id="navToggle" data-i18n-attr="aria-label:nav.menu_open" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">' +
             '<span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>' +
           '</button>' +
         '</div>' +
@@ -43,30 +50,36 @@
       '<div class="mobile-menu-links">' +
         '<div class="mobile-has-submenu">' +
           '<button type="button" class="mobile-submenu-toggle" aria-expanded="false" aria-controls="mobileServicesSub" tabindex="-1">' +
-            '<span class="mobile-submenu-label">Servicios</span>' +
+            '<span class="mobile-submenu-label" data-i18n="nav.services">Servicios</span>' +
             '<span class="mobile-submenu-chevron" aria-hidden="true"></span>' +
           '</button>' +
           '<div class="mobile-submenu" id="mobileServicesSub" aria-hidden="true">' +
-            '<a href="' + base + 'index.html#services" tabindex="-1">Ver todos los servicios</a>' +
-            '<a href="' + base + 'services/data.html" tabindex="-1">Datos</a>' +
-            '<a href="' + base + 'services/artificial-intelligence.html" tabindex="-1">Inteligencia Artificial</a>' +
-            '<a href="' + base + 'services/software-factory.html" tabindex="-1">Software Factory</a>' +
+            '<a href="' + base + 'index.html#services" tabindex="-1" data-i18n="submenu.services_show_all">Ver todos los servicios</a>' +
+            '<a href="' + base + 'services/data.html" tabindex="-1" data-i18n="submenu.data.title">Datos</a>' +
+            '<a href="' + base + 'services/artificial-intelligence.html" tabindex="-1" data-i18n="submenu.ai.title">Inteligencia Artificial</a>' +
+            '<a href="' + base + 'services/software-factory.html" tabindex="-1" data-i18n="submenu.sw.title">Software Factory</a>' +
           '</div>' +
         '</div>' +
-        '<a href="' + base + 'index.html#achievements" tabindex="-1">Clientes</a>' +
-        '<a href="' + base + 'index.html#cases" tabindex="-1">Casos</a>' +
-        '<a href="' + base + 'index.html#why" tabindex="-1">Por qué elegirnos</a>' +
+        '<a href="' + base + 'index.html#achievements" tabindex="-1" data-i18n="nav.clients">Clientes</a>' +
+        '<a href="' + base + 'index.html#cases" tabindex="-1" data-i18n="nav.cases">Casos</a>' +
+        '<a href="' + base + 'index.html#why" tabindex="-1" data-i18n="nav.why">Por qué elegirnos</a>' +
+      '</div>' +
+      '<div class="mobile-menu-langwrap">' +
+        '<div class="lang-switch" role="group" aria-label="Language">' +
+          '<button type="button" data-lang-switch="es" aria-pressed="true" tabindex="-1" data-i18n-attr="aria-label:lang.switch_to_es" aria-label="Cambiar a español"><span class="lang-flag" aria-hidden="true">🇨🇱</span><span>ES</span></button>' +
+          '<button type="button" data-lang-switch="en" aria-pressed="false" tabindex="-1" data-i18n-attr="aria-label:lang.switch_to_en" aria-label="Switch to English"><span class="lang-flag" aria-hidden="true">🇺🇸</span><span>EN</span></button>' +
+        '</div>' +
       '</div>' +
       '<div class="mobile-menu-footer">' +
-        '<a href="' + base + 'index.html#cta" class="nav-cta" tabindex="-1">Hablemos<span aria-hidden="true"> →</span></a>' +
+        '<a href="' + base + 'index.html#cta" class="nav-cta" tabindex="-1"><span data-i18n="nav.contact">Hablemos</span><span aria-hidden="true"> →</span></a>' +
       '</div>' +
     '</div>';
 
   var footerHTML =
     '<footer>' +
-      '<div class="footer-logo"><img loading="lazy" decoding="async" src="' + base + 'assets/digitali-logo.svg" alt="Digitali"></div>' +
-      '<div>digitali.cl · Santiago, Chile · Data &amp; Software Factory desde 2016</div>' +
-      '<div>© 2026 Digitali</div>' +
+      '<div class="footer-logo"><img loading="lazy" decoding="async" src="' + base + 'assets/digitali-logo.svg" data-i18n-attr="alt:footer.logo_alt" alt="Digitali"></div>' +
+      '<div data-i18n="footer.tagline">digitali.cl · Santiago, Chile · Data &amp; Software Factory desde 2016</div>' +
+      '<div data-i18n="footer.copy">© 2026 Digitali</div>' +
     '</footer>';
 
   var headerSlot = document.querySelector('[data-include="header"]');

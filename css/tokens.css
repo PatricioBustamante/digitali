@@ -247,6 +247,6 @@
   /* Layout */
   --nav-h: 72px;
   --container-max: 1400px;
-  --container-gutter: 5vw;
+  --container-gutter: 1.25rem;
   --container-pad: max(var(--container-gutter), calc((100% - var(--container-max)) / 2));
 }
