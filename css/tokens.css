@@ -177,14 +177,15 @@
   --fw-black: 900;
 
   /* Typography · sizes (modular scale) */
-  --fs-3xs: 0.7rem;     /* 11.2px */
-  --fs-2xs: 0.72rem;    /* 11.5px */
-  --fs-xs: 0.75rem;     /* 12px   */
-  --fs-sm: 0.78rem;     /* 12.5px */
-  --fs-base-sm: 0.82rem;/* 13.1px */
+  --fs-3xs: 0.875rem;   /* 14px (clamped min) */
+  --fs-2xs: 0.875rem;   /* 14px (clamped min) */
+  --fs-xs: 0.875rem;    /* 14px (clamped min) */
+  --fs-sm: 0.875rem;    /* 14px (clamped min) */
+  --fs-base-sm: 0.875rem;/* 14px (clamped min) */
   --fs-base: 0.95rem;   /* 15.2px */
   --fs-md: 1rem;        /* 16px   */
   --fs-md-lg: 1.05rem;  /* 16.8px */
+  --fs-md-xl: 1.125rem; /* 18px   */
   --fs-lg: 1.4rem;      /* 22.4px */
   --fs-xl: 1.6rem;      /* 25.6px */
   --fs-2xl: 1.8rem;     /* 28.8px */

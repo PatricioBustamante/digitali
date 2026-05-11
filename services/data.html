@@ -232,7 +232,7 @@
 
     <!-- PROCESS -->
     <section id="datos-process" aria-labelledby="datos-process-title">
-      <div class="datos-section-header datos-section-header--centered reveal">
+      <div class="datos-section-header reveal">
         <div class="section-eyebrow" data-i18n="dt.process.eyebrow">Metodología</div>
         <h2 id="datos-process-title" class="section-title" data-i18n-html="dt.process.title">De la visión a la <em>ejecución.</em></h2>
         <p class="section-sub" data-i18n="dt.process.sub">Un proceso probado en más de 120 proyectos. Cuatro etapas que conectan la ambición del
@@ -272,7 +272,7 @@
 
     <!-- DATA QUALITY -->
     <section id="datos-quality" aria-labelledby="datos-quality-title">
-      <div class="datos-section-header datos-section-header--centered reveal">
+      <div class="datos-section-header reveal">
         <div class="section-eyebrow" data-i18n="dt.quality.eyebrow">Data quality</div>
         <h2 id="datos-quality-title" class="section-title" data-i18n-html="dt.quality.title">Datos confiables,<br>reportes <em>sin asterisco.</em></h2>
         <p class="section-sub" data-i18n="dt.quality.sub">Estos son los objetivos típicos que implementamos en nuestros clientes. Seis dimensiones
@@ -314,7 +314,7 @@
 
     <!-- IMPACT / KPIs -->
     <section id="datos-impact" aria-labelledby="datos-impact-title">
-      <div class="datos-section-header datos-section-header--centered reveal">
+      <div class="datos-section-header reveal">
         <div class="section-eyebrow" data-i18n="dt.impact.eyebrow">Impacto medible</div>
         <h2 id="datos-impact-title" class="section-title" data-i18n-html="dt.impact.title">Resultados que <em>hablan.</em></h2>
         <p class="section-sub" data-i18n="dt.impact.sub">Impacto real medido en proyectos con clientes como Banco de Chile, Colbún y DHL.</p>
@@ -425,36 +425,48 @@
 
     <!-- FAQ -->
     <section id="datos-faq" aria-labelledby="datos-faq-title">
-      <div class="datos-section-header datos-section-header--centered reveal">
+      <div class="datos-section-header reveal">
         <div class="section-eyebrow" data-i18n="dt.faq.eyebrow">Preguntas frecuentes</div>
         <h2 id="datos-faq-title" class="section-title" data-i18n-html="dt.faq.title">Lo que suelen <em>preguntarnos.</em></h2>
       </div>
-      <div class="datos-faq-grid reveal">
-        <details class="datos-faq-item">
-          <summary class="datos-faq-q" data-i18n="dt.faq.1.q">¿Cuánto tiempo toma implementar una estrategia de datos?</summary>
-          <div class="datos-faq-a"><p data-i18n="dt.faq.1.a">La fase de estrategia y roadmap toma entre 6 y 10 semanas. La implementación de las primeras iniciativas comienza en paralelo, con quick-wins entregados desde el primer mes.</p></div>
-        </details>
-        <details class="datos-faq-item">
-          <summary class="datos-faq-q" data-i18n="dt.faq.2.q">¿Necesitamos tener un equipo de datos interno?</summary>
-          <div class="datos-faq-a"><p data-i18n="dt.faq.2.a">No necesariamente. Podemos operar como tu equipo de datos externo o complementar un equipo interno existente. Parte de nuestra estrategia incluye definir el modelo operativo ideal para tu empresa.</p></div>
-        </details>
-        <details class="datos-faq-item">
-          <summary class="datos-faq-q" data-i18n="dt.faq.3.q">¿Trabajan con nuestra plataforma actual o proponen algo nuevo?</summary>
-          <div class="datos-faq-a"><p data-i18n="dt.faq.3.a">Ambas. Evaluamos tu ecosistema actual y recomendamos la arquitectura objetivo. Si tu stack funciona, lo potenciamos. Si necesita evolucionar, diseñamos la migración con mínimo impacto operacional.</p></div>
-        </details>
-        <details class="datos-faq-item">
-          <summary class="datos-faq-q" data-i18n="dt.faq.4.q">¿Qué pasa después del go-live?</summary>
-          <div class="datos-faq-a"><p data-i18n="dt.faq.4.a">Ofrecemos acompañamiento post-implementación con soporte, monitoreo de calidad y evolución continua. No desaparecemos después del go-live — somos un partner de largo plazo.</p></div>
-        </details>
-        <details class="datos-faq-item">
-          <summary class="datos-faq-q" data-i18n="dt.faq.5.q">¿Cómo se mide el ROI de un proyecto de datos?</summary>
-          <div class="datos-faq-a"><p data-i18n="dt.faq.5.a">Definimos KPIs de impacto desde la estrategia: reducción de tiempo de reporting, mejora en calidad de datos, ahorro operacional y aceleración de time-to-insight. Todo se mide y se reporta.</p></div>
-        </details>
-        <details class="datos-faq-item">
-          <summary class="datos-faq-q" data-i18n="dt.faq.6.q">¿En qué industrias tienen experiencia?</summary>
-          <div class="datos-faq-a"><p data-i18n="dt.faq.6.a">Banca, seguros, energía, retail, logística, minería e industria. Hemos trabajado con empresas como Banco de Chile, Colbún, DHL, Consorcio, Confuturo y Gourmet.</p></div>
-        </details>
-      </div>
+      <ul class="datos-faq-grid reveal">
+        <li>
+          <details class="datos-faq-item">
+            <summary class="datos-faq-q" data-i18n="dt.faq.1.q">¿Cuánto tiempo toma implementar una estrategia de datos?</summary>
+            <div class="datos-faq-a"><p data-i18n="dt.faq.1.a">La fase de estrategia y roadmap toma entre 6 y 10 semanas. La implementación de las primeras iniciativas comienza en paralelo, con quick-wins entregados desde el primer mes.</p></div>
+          </details>
+        </li>
+        <li>
+          <details class="datos-faq-item">
+            <summary class="datos-faq-q" data-i18n="dt.faq.2.q">¿Necesitamos tener un equipo de datos interno?</summary>
+            <div class="datos-faq-a"><p data-i18n="dt.faq.2.a">No necesariamente. Podemos operar como tu equipo de datos externo o complementar un equipo interno existente. Parte de nuestra estrategia incluye definir el modelo operativo ideal para tu empresa.</p></div>
+          </details>
+        </li>
+        <li>
+          <details class="datos-faq-item">
+            <summary class="datos-faq-q" data-i18n="dt.faq.3.q">¿Trabajan con nuestra plataforma actual o proponen algo nuevo?</summary>
+            <div class="datos-faq-a"><p data-i18n="dt.faq.3.a">Ambas. Evaluamos tu ecosistema actual y recomendamos la arquitectura objetivo. Si tu stack funciona, lo potenciamos. Si necesita evolucionar, diseñamos la migración con mínimo impacto operacional.</p></div>
+          </details>
+        </li>
+        <li>
+          <details class="datos-faq-item">
+            <summary class="datos-faq-q" data-i18n="dt.faq.4.q">¿Qué pasa después del go-live?</summary>
+            <div class="datos-faq-a"><p data-i18n="dt.faq.4.a">Ofrecemos acompañamiento post-implementación con soporte, monitoreo de calidad y evolución continua. No desaparecemos después del go-live — somos un partner de largo plazo.</p></div>
+          </details>
+        </li>
+        <li>
+          <details class="datos-faq-item">
+            <summary class="datos-faq-q" data-i18n="dt.faq.5.q">¿Cómo se mide el ROI de un proyecto de datos?</summary>
+            <div class="datos-faq-a"><p data-i18n="dt.faq.5.a">Definimos KPIs de impacto desde la estrategia: reducción de tiempo de reporting, mejora en calidad de datos, ahorro operacional y aceleración de time-to-insight. Todo se mide y se reporta.</p></div>
+          </details>
+        </li>
+        <li>
+          <details class="datos-faq-item">
+            <summary class="datos-faq-q" data-i18n="dt.faq.6.q">¿En qué industrias tienen experiencia?</summary>
+            <div class="datos-faq-a"><p data-i18n="dt.faq.6.a">Banca, seguros, energía, retail, logística, minería e industria. Hemos trabajado con empresas como Banco de Chile, Colbún, DHL, Consorcio, Confuturo y Gourmet.</p></div>
+          </details>
+        </li>
+      </ul>
     </section>
 
   </main>

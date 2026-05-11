@@ -148,7 +148,7 @@
   gap: 0.5rem;
 }
 .datos-service-caps li {
-  font-size: var(--fs-sm);
+  font-size: var(--fs-md);
   color: var(--text-secondary);
   padding-left: 1.25rem;
   position: relative;
@@ -279,7 +279,7 @@
 
 .datos-process-name {
   font-family: var(--font-display);
-  font-size: var(--fs-md-lg);
+  font-size: var(--fs-md-xl);
   font-weight: var(--fw-bold);
   color: var(--off-white);
   margin-bottom: 0.5rem;
@@ -287,7 +287,7 @@
 }
 
 .datos-process-desc {
-  font-size: var(--fs-sm);
+  font-size: var(--fs-md);
   color: rgba(255,255,255,0.68);
   line-height: 1.55;
 }
@@ -555,9 +555,12 @@
 }
 
 .datos-faq-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .datos-faq-item {
@@ -587,19 +590,43 @@
 .datos-faq-q:hover { color: var(--blue); }
 
 .datos-faq-q::after {
-  content: '+';
-  color: var(--blue);
-  font-size: var(--fs-xl);
-  font-weight: var(--fw-regular);
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid var(--blue);
+  border-bottom: 2px solid var(--blue);
+  transform: translateY(-2px) rotate(45deg);
   transition: transform 0.32s var(--ease-smooth);
   flex-shrink: 0;
   margin-left: 1rem;
 }
 .datos-faq-q::-webkit-details-marker { display: none; }
-.datos-faq-item[open] .datos-faq-q::after { transform: rotate(45deg); }
+.datos-faq-item[open] .datos-faq-q::after { transform: translateY(2px) rotate(-135deg); }
 
 .datos-faq-a {
   padding: 0 1.75rem 1.5rem;
+}
+
+.datos-faq-item[open] .datos-faq-a {
+  overflow: hidden;
+  animation: datosFaqPanelOpen 0.6s var(--ease-smooth);
+}
+.datos-faq-item[open] .datos-faq-a p {
+  animation: datosFaqRowOpen 0.5s 0.10s var(--ease-smooth) both;
+}
+
+@keyframes datosFaqPanelOpen {
+  from { max-height: 0;     opacity: 0; padding-top: 0;    padding-bottom: 0; }
+  to   { max-height: 320px; opacity: 1; padding-top: 0;    padding-bottom: 1.5rem; }
+}
+@keyframes datosFaqRowOpen {
+  from { opacity: 0; transform: translateX(-8px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .datos-faq-item[open] .datos-faq-a,
+  .datos-faq-item[open] .datos-faq-a p { animation: none; }
 }
 
 .datos-faq-a p {
@@ -619,7 +646,7 @@
   .datos-quality-grid { grid-template-columns: repeat(3, 1fr); }
   .datos-impact-grid { grid-template-columns: 1fr 1fr; }
   .datos-why-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-  .datos-faq-grid { grid-template-columns: 1fr; }
+  /* .datos-faq-grid ya es una lista vertical */
   .datos-why-quote { position: static; }
 }
 
