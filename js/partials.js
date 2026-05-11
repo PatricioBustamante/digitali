@@ -12,10 +12,17 @@
           '<img src="' + base + 'assets/digitali-logo.svg" alt="">' +
         '</a>' +
         '<div class="nav-links">' +
-          '<a href="' + base + 'index.html#services">Servicios</a>' +
+          '<div class="has-submenu">' +
+            '<a href="' + base + 'index.html#services" class="submenu-trigger" aria-haspopup="true" aria-expanded="false">Servicios<span class="submenu-chevron" aria-hidden="true"></span></a>' +
+            '<ul class="submenu" role="menu">' +
+              '<li role="none"><a role="menuitem" href="' + base + 'services/data.html"><span class="submenu-title">Datos</span><span class="submenu-desc">Arquitectura, gobierno, calidad y analítica</span></a></li>' +
+              '<li role="none"><a role="menuitem" href="' + base + 'services/artificial-intelligence.html"><span class="submenu-title">Inteligencia Artificial</span><span class="submenu-desc">ML, GenAI y agentes en producción</span></a></li>' +
+              '<li role="none"><a role="menuitem" href="' + base + 'services/software-factory.html"><span class="submenu-title">Software Factory</span><span class="submenu-desc">Productos digitales potenciados por IA</span></a></li>' +
+            '</ul>' +
+          '</div>' +
+          '<a href="' + base + 'index.html#achievements">Clientes</a>' +
           '<a href="' + base + 'index.html#cases">Casos</a>' +
-          '<a href="' + base + 'index.html#why">Por qué</a>' +
-          '<a href="' + base + 'how-we-do-it.html">Cómo lo hacemos</a>' +
+          '<a href="' + base + 'index.html#why">Por qué elegirnos</a>' +
           '<a href="' + base + 'index.html#cta" class="nav-cta">Hablemos<span aria-hidden="true"> →</span></a>' +
           '<button class="theme-toggle" id="themeToggle" aria-label="Cambiar a modo oscuro" aria-pressed="false">' +
             '<svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">' +
@@ -34,10 +41,21 @@
     '</header>' +
     '<div class="mobile-menu" id="mobileMenu" aria-hidden="true">' +
       '<div class="mobile-menu-links">' +
-        '<a href="' + base + 'index.html#services" tabindex="-1">Servicios</a>' +
+        '<div class="mobile-has-submenu">' +
+          '<button type="button" class="mobile-submenu-toggle" aria-expanded="false" aria-controls="mobileServicesSub" tabindex="-1">' +
+            '<span class="mobile-submenu-label">Servicios</span>' +
+            '<span class="mobile-submenu-chevron" aria-hidden="true"></span>' +
+          '</button>' +
+          '<div class="mobile-submenu" id="mobileServicesSub" aria-hidden="true">' +
+            '<a href="' + base + 'index.html#services" tabindex="-1">Ver todos los servicios</a>' +
+            '<a href="' + base + 'services/data.html" tabindex="-1">Datos</a>' +
+            '<a href="' + base + 'services/artificial-intelligence.html" tabindex="-1">Inteligencia Artificial</a>' +
+            '<a href="' + base + 'services/software-factory.html" tabindex="-1">Software Factory</a>' +
+          '</div>' +
+        '</div>' +
+        '<a href="' + base + 'index.html#achievements" tabindex="-1">Clientes</a>' +
         '<a href="' + base + 'index.html#cases" tabindex="-1">Casos</a>' +
-        '<a href="' + base + 'index.html#why" tabindex="-1">Por qué</a>' +
-        '<a href="' + base + 'how-we-do-it.html" tabindex="-1">Cómo lo hacemos</a>' +
+        '<a href="' + base + 'index.html#why" tabindex="-1">Por qué elegirnos</a>' +
       '</div>' +
       '<div class="mobile-menu-footer">' +
         '<a href="' + base + 'index.html#cta" class="nav-cta" tabindex="-1">Hablemos<span aria-hidden="true"> →</span></a>' +
@@ -70,4 +88,32 @@
       }
     } catch (e) { /* ignore */ }
   }
+
+  // Sync aria-expanded on submenu triggers (hover + focus)
+  var submenus = document.querySelectorAll('.has-submenu');
+  submenus.forEach(function (container) {
+    var trigger = container.querySelector('.submenu-trigger');
+    if (!trigger) return;
+    var setOpen = function (open) { trigger.setAttribute('aria-expanded', String(open)); };
+    container.addEventListener('mouseenter', function () { setOpen(true); });
+    container.addEventListener('mouseleave', function () { setOpen(false); });
+    container.addEventListener('focusin', function () { setOpen(true); });
+    container.addEventListener('focusout', function (e) {
+      if (!container.contains(e.relatedTarget)) setOpen(false);
+    });
+  });
+
+  // Mobile submenu accordion toggle
+  document.querySelectorAll('.mobile-submenu-toggle').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var isOpen = btn.getAttribute('aria-expanded') === 'true';
+      var next = !isOpen;
+      btn.setAttribute('aria-expanded', String(next));
+      var targetId = btn.getAttribute('aria-controls');
+      var panel = targetId ? document.getElementById(targetId) : null;
+      if (panel) panel.setAttribute('aria-hidden', String(!next));
+      var wrap = btn.closest('.mobile-has-submenu');
+      if (wrap) wrap.classList.toggle('open', next);
+    });
+  });
 })();

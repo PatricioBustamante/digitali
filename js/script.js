@@ -43,6 +43,7 @@ function setMenuState(isOpen) {
   navToggle.setAttribute('aria-expanded', String(isOpen));
   navToggle.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
   mobileMenu.setAttribute('aria-hidden', String(!isOpen));
+  document.body.style.overflow = isOpen ? 'hidden' : '';
   mobileFocusables.forEach(el => {
     if (isOpen) el.removeAttribute('tabindex');
     else el.setAttribute('tabindex', '-1');
