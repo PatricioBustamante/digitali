@@ -279,11 +279,7 @@
 }
 
 /* ── Overview grid (2×2 cards with accent left border) ── */
-.vertical-overview {
-  padding: 6rem var(--container-pad);
-  max-width: var(--container-max);
-  margin: 0 auto;
-}
+/* Section padding inherited from global `section` rule in style.css. */
 
 .vertical-section-header {
   max-width: 820px;
@@ -373,7 +369,6 @@
   .vertical-hero-content { padding: 2rem var(--container-pad) 2rem; gap: 2rem; }
   .vertical-hero-title { font-size: var(--fs-4xl); }
   .vertical-hero-actions { flex-direction: column; align-items: stretch; }
-  .vertical-overview { padding: 4rem var(--container-pad); }
   .vertical-overview-card { grid-template-columns: 1fr; padding: 1.5rem; }
 }
 
