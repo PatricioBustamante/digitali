@@ -240,7 +240,8 @@ nav {
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 1rem 0;
+  min-height: 64px;
+  padding: 0.5rem 0;
   background: transparent;
   border: none;
   border-bottom: 1px solid var(--border);
@@ -264,16 +265,26 @@ nav {
 .mobile-submenu-label { line-height: 1.2; }
 
 .mobile-submenu-chevron {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  display: inline-block;
+  flex-shrink: 0;
+}
+.mobile-submenu-chevron::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
   width: 9px;
   height: 9px;
   border-right: 1.8px solid currentColor;
   border-bottom: 1.8px solid currentColor;
-  transform: rotate(45deg) translate(-2px, -3px);
+  transform: translate(-50%, -75%) rotate(45deg);
   transition: transform 0.28s var(--ease-smooth);
-  flex-shrink: 0;
 }
-.mobile-has-submenu.open .mobile-submenu-chevron {
-  transform: rotate(-135deg) translate(-2px, -3px);
+.mobile-has-submenu.open .mobile-submenu-chevron::before {
+  transform: translate(-50%, -25%) rotate(-135deg);
 }
 
 .mobile-submenu {
@@ -300,14 +311,25 @@ nav {
 .mobile-submenu a {
   font-size: 0.95rem !important;
   color: var(--text-secondary) !important;
-  padding: 0.55rem 0 !important;
+  padding: 0 !important;
+  min-height: 48px !important;
   border-bottom: none !important;
+  gap: 0.75rem;
   opacity: 0;
   transform: translateX(-8px);
   transition:
     opacity 0.5s var(--ease-smooth),
     transform 0.5s var(--ease-smooth),
     color 0.2s;
+}
+.mobile-submenu a::before {
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-radius: 20%;
+  background: var(--blue);
+  flex-shrink: 0;
+  opacity: 0.8;
 }
 .mobile-has-submenu.open .mobile-submenu a {
   opacity: 1;
@@ -425,7 +447,10 @@ nav {
 
 .mobile-menu-links a {
   width: 100%;
-  padding: 1rem 0;
+  min-height: 64px;
+  padding: 0.5rem 0;
+  display: flex;
+  align-items: center;
   border-bottom: 1px solid var(--border);
   font-family: var(--font-display);
   font-size: var(--fs-md);
