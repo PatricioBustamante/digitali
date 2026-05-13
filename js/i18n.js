@@ -59,7 +59,7 @@
       'hero.stats.years': 'Años',
       'hero.stats.projects': 'Proyectos',
       'hero.stats.seniors': 'Seniors',
-      'hero.stats.retention': 'Retención clientes',
+      'hero.stats.retention': 'Retención',
       'hero.scroll_hint': 'Desliza para descubrir',
 
       // Marquee
@@ -442,7 +442,7 @@
       'hero.stats.years': 'Years',
       'hero.stats.projects': 'Projects',
       'hero.stats.seniors': 'Seniors',
-      'hero.stats.retention': 'Client retention',
+      'hero.stats.retention': 'Retention',
       'hero.scroll_hint': 'Scroll to discover',
 
       // Marquee
