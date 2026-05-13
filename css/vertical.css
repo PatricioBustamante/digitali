@@ -89,24 +89,6 @@
   gap: 2.5rem;
 }
 
-/* ── Breadcrumb ── */
-.vertical-breadcrumb {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  font-size: var(--fs-sm);
-  font-weight: var(--fw-medium);
-  color: var(--text-on-inverse-faint);
-}
-.vertical-breadcrumb a {
-  color: var(--text-on-inverse-faint);
-  text-decoration: none;
-  transition: color 0.32s;
-}
-.vertical-breadcrumb a:hover { color: var(--vertical-accent-soft); }
-.vertical-breadcrumb-sep { opacity: 0.45; }
-.vertical-breadcrumb-current { color: var(--text-on-inverse); }
-
 /* ── Main banner content ── */
 .vertical-banner-main {
   display: flex;

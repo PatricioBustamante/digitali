@@ -23,9 +23,9 @@
               '<li><a href="' + base + 'services/software-factory.html"><span class="submenu-title" data-i18n="submenu.sw.title">Software Factory</span><span class="submenu-desc" data-i18n="submenu.sw.desc">Productos digitales potenciados por IA</span></a></li>' +
             '</ul>' +
           '</div>' +
-          '<a href="' + base + 'index.html#achievements" data-i18n="nav.clients">Clientes</a>' +
-          '<a href="' + base + 'index.html#cases" data-i18n="nav.cases">Casos</a>' +
-          '<a href="' + base + 'index.html#why" data-i18n="nav.why">Por qué elegirnos</a>' +
+          '<a class="has-submenu" href="' + base + 'index.html#achievements" data-i18n="nav.clients">Clientes</a>' +
+          '<a class="has-submenu" href="' + base + 'index.html#cases" data-i18n="nav.cases">Casos</a>' +
+          '<a class="has-submenu" href="' + base + 'index.html#why" data-i18n="nav.why">Por qué elegirnos</a>' +
           '<a href="' + base + 'index.html#cta" class="nav-cta"><span data-i18n="nav.contact">Hablemos</span><span aria-hidden="true"> →</span></a>' +
           '<div class="lang-switch" role="group" aria-label="Language">' +
             '<button type="button" data-lang-switch="es" aria-pressed="true" data-i18n-attr="aria-label:lang.switch_to_es" aria-label="Cambiar a español"><span class="lang-flag" aria-hidden="true">🇨🇱</span><span>ES</span></button>' +
