@@ -641,14 +641,22 @@ nav:is(.scrolled, :has(.hamburger.active)) .hamburger span,
 #hero {
   --hero-container-max: 1800px;
   --hero-container-pad: max(var(--container-gutter), calc((100% - var(--hero-container-max)) / 2));
-  position: relative;
-  min-height: 100vh;
+  position: sticky;
+  top: 0;
+  z-index: 0;
+  height: 100vh;
   padding-top: var(--nav-h);
   display: flex;
   align-items: center;
   overflow: hidden;
   background: var(--bg-inverse);
   transition: background 0.4s var(--ease-smooth);
+}
+
+/* Las secciones posteriores al hero suben sobre él gracias al z-index + fondo sólido */
+main > section:not(#hero) {
+  position: relative;
+  z-index: 1;
 }
 
 .hero-banner {
@@ -906,6 +914,12 @@ nav:is(.scrolled, :has(.hamburger.active)) .hamburger span,
   border-top: 1px solid var(--border-on-inverse);
   border-bottom: 1px solid var(--border-on-inverse);
   transition: background 0.4s var(--ease-smooth);
+  /* Full-bleed: ocupa el 100% del ancho del viewport rompiendo el padding del section */
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  margin-top: -6rem;
+  margin-bottom: 4rem;
 }
 
 .marquee-track {

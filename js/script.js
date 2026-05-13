@@ -80,6 +80,47 @@ document.addEventListener('keydown', (e) => {
   }
 });
 
+// ── HERO · paralax del video al hacer scroll ──
+(function heroParallax() {
+  const heroEl = document.getElementById('hero');
+  const videoEl = heroEl && heroEl.querySelector('.hero-video');
+  if (!heroEl || !videoEl) return;
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReducedMotion) return;
+
+  let isInView = true;
+  let ticking = false;
+
+  const SCALE = 1.6;
+  const FACTOR = 0.6;
+  const update = () => {
+    ticking = false;
+    if (!isInView) return;
+    const y = window.scrollY;
+    const buffer = heroEl.offsetHeight * (SCALE - 1) / 2;
+    const translate = Math.min(y * FACTOR, buffer);
+    videoEl.style.transform = `translate3d(0, ${translate}px, 0) scale(${SCALE})`;
+  };
+  const onScroll = () => {
+    if (!ticking) {
+      ticking = true;
+      requestAnimationFrame(update);
+    }
+  };
+
+  videoEl.style.willChange = 'transform';
+  videoEl.style.transformOrigin = 'center center';
+  videoEl.style.transform = `translate3d(0, 0, 0) scale(${SCALE})`;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { isInView = e.isIntersecting; });
+  }, { threshold: 0 });
+  observer.observe(heroEl);
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  update();
+})();
+
 // ── NAV · estado "scrolled" para activar el fondo opaco ──
 (function navScrollState() {
   const nav = document.querySelector('nav');
