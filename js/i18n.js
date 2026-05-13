@@ -52,7 +52,7 @@
 
       // Hero (index)
       'hero.eyebrow': 'Data & Software Factory · Desde 2016',
-      'hero.title': 'Tecnología que <em>resuelve.</em><br>Resultados que se miden.',
+      'hero.title': 'Tecnología que <em>resuelve.</em><br>Resultados<br>que se miden.',
       'hero.subtitle': 'Construimos plataformas de datos, productos digitales e inteligencia artificial para empresas que quieren impacto real — no promesas.',
       'hero.cta.start': 'Iniciar proyecto',
       'hero.cta.cases': 'Ver casos de éxito',
@@ -435,7 +435,7 @@
       'lang.switch_to_es': 'Switch to Spanish',
 
       'hero.eyebrow': 'Data & Software Factory · Since 2016',
-      'hero.title': 'Technology that <em>solves.</em><br>Results that can be measured.',
+      'hero.title': 'Technology that <em>solves.</em><br>Results<br>that can be measured.',
       'hero.subtitle': 'We build data platforms, digital products and artificial intelligence for companies that want real impact — not promises.',
       'hero.cta.start': 'Start a project',
       'hero.cta.cases': 'See case studies',
