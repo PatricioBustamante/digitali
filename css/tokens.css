@@ -86,14 +86,14 @@
   --surface-on-inverse-hover: rgba(255, 255, 255, 0.06);
 
   /* Colors · contextual */
-  --nav-bg: rgba(250, 250, 248, 0.94);
+  --nav-bg: rgba(250, 250, 248, 0.55);
 
   /* Shadows */
   --card-shadow: 0 20px 60px rgba(0, 70, 224, 0.08);
   --card-shadow-hover: 0 30px 80px rgba(0, 0, 0, 0.12);
 
   /* Filters */
-  --logo-filter: none;
+  --logo-filter: brightness(0) invert(1);
   --logo-filter-on-dark: brightness(0) invert(1);
   --client-logo-filter: grayscale(1) opacity(0.5);
   --client-logo-filter-hover: grayscale(0) opacity(1);
@@ -140,7 +140,7 @@
   --surface-on-inverse-hover: rgba(255, 255, 255, 0.06);
 
   /* Colors · contextual */
-  --nav-bg: rgba(13, 13, 13, 0.94);
+  --nav-bg: rgba(13, 13, 13, 0.45);
 
   /* Shadows */
   --card-shadow: 0 20px 60px rgba(90, 144, 255, 0.1);

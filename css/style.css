@@ -44,10 +44,72 @@ nav {
   align-items: center;
   justify-content: space-between;
   padding: 0 var(--container-pad);
-  background: var(--nav-bg);
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  transition: background 0.4s var(--ease-smooth), border-color 0.4s var(--ease-smooth), backdrop-filter 0.4s var(--ease-smooth);
+}
+
+/* Estado opaco · siempre activo con .scrolled, y con :hover solo en dispositivos con hover real */
+nav:is(.scrolled, :has(.hamburger.active)) {
+  background: rgba(250, 250, 248, 0.94);
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border);
-  transition: background 0.4s var(--ease-smooth), border-color 0.4s var(--ease-smooth);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom-color: var(--border);
+}
+[data-theme="dark"] nav:is(.scrolled, :has(.hamburger.active)) { background: rgba(13, 13, 13, 0.94); }
+/* Cuando el menu hamburguesa está abierto, el nav iguala el fondo opaco del overlay */
+nav:has(.hamburger.active) {
+  background: var(--bg-primary);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+nav:is(.scrolled, :has(.hamburger.active)) .nav-logo img { filter: none; }
+[data-theme="dark"] nav:is(.scrolled, :has(.hamburger.active)) .nav-logo img { filter: brightness(0) invert(1); }
+nav:is(.scrolled, :has(.hamburger.active)) .nav-links a { color: var(--text-secondary); }
+nav:is(.scrolled, :has(.hamburger.active)) .nav-links a:hover { color: var(--blue); }
+nav:is(.scrolled, :has(.hamburger.active)) .nav-cta { background: var(--text-primary); color: var(--bg-primary) !important; }
+nav:is(.scrolled, :has(.hamburger.active)) .nav-cta:hover { background: var(--blue) !important; color: var(--white) !important; }
+nav:is(.scrolled, :has(.hamburger.active)) .theme-toggle {
+  background: var(--bg-tertiary);
+  border-color: var(--border);
+  color: var(--text-primary);
+}
+nav:is(.scrolled, :has(.hamburger.active)) .theme-toggle:hover { border-color: var(--blue); }
+nav:is(.scrolled, :has(.hamburger.active)) .lang-switch { border-color: var(--border); }
+nav:is(.scrolled, :has(.hamburger.active)) .lang-switch button { color: var(--text-secondary); }
+nav:is(.scrolled, :has(.hamburger.active)) .lang-switch button:hover { color: var(--text-primary); }
+nav:is(.scrolled, :has(.hamburger.active)) .lang-switch button[aria-pressed="true"] {
+  background: var(--text-primary);
+  color: var(--bg-primary);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  nav:hover {
+    background: rgba(250, 250, 248, 0.94);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom-color: var(--border);
+  }
+  [data-theme="dark"] nav:hover { background: rgba(13, 13, 13, 0.94); }
+  nav:hover .nav-logo img { filter: none; }
+  [data-theme="dark"] nav:hover .nav-logo img { filter: brightness(0) invert(1); }
+  nav:hover .nav-links a { color: var(--text-secondary); }
+  nav:hover .nav-links a:hover { color: var(--blue); }
+  nav:hover .nav-cta { background: var(--text-primary); color: var(--bg-primary) !important; }
+  nav:hover .nav-cta:hover { background: var(--blue) !important; color: var(--white) !important; }
+  nav:hover .theme-toggle {
+    background: var(--bg-tertiary);
+    border-color: var(--border);
+    color: var(--text-primary);
+  }
+  nav:hover .theme-toggle:hover { border-color: var(--blue); }
+  nav:hover .lang-switch { border-color: var(--border); }
+  nav:hover .lang-switch button { color: var(--text-secondary); }
+  nav:hover .lang-switch button:hover { color: var(--text-primary); }
+  nav:hover .lang-switch button[aria-pressed="true"] {
+    background: var(--text-primary);
+    color: var(--bg-primary);
+  }
 }
 
 .nav-logo {
@@ -73,19 +135,19 @@ nav {
 .nav-links a {
   font-size: 0.88rem;
   font-weight: var(--fw-medium);
-  color: var(--text-secondary);
+  color: var(--white);
   text-decoration: none;
   letter-spacing: 0.01em;
   transition: color 0.32s;
 }
 
 .nav-links a:hover {
-  color: var(--blue);
+  color: var(--blue-on-dark);
 }
 
 .nav-cta {
-  background: var(--text-primary);
-  color: var(--bg-primary) !important;
+  background: var(--white);
+  color: #0A0A0A !important;
   padding: 0.55rem 1.25rem;
   border-radius: var(--radius-pill);
   font-size: 0.85rem !important;
@@ -102,7 +164,7 @@ nav {
 .lang-switch {
   display: inline-flex;
   align-items: stretch;
-  border: 1px solid var(--border);
+  border: 1px solid color-mix(in srgb, var(--white) 40%, transparent);
   border-radius: var(--radius-pill);
   overflow: hidden;
   font-family: var(--font-display);
@@ -115,7 +177,7 @@ nav {
   font-size: 0.72rem;
   font-weight: var(--fw-bold);
   letter-spacing: 0.05em;
-  color: var(--text-secondary);
+  color: color-mix(in srgb, var(--white) 75%, transparent);
   cursor: pointer;
   display: inline-flex;
   align-items: center;
@@ -126,13 +188,13 @@ nav {
   font-size: 0.95rem;
   line-height: 1;
 }
-.lang-switch button:hover { color: var(--text-primary); }
+.lang-switch button:hover { color: var(--white); }
 .lang-switch button[aria-pressed="true"] {
-  background: var(--text-primary);
-  color: var(--bg-primary);
+  background: var(--white);
+  color: #0A0A0A;
 }
 .lang-switch button[aria-pressed="true"]:hover {
-  color: var(--bg-primary);
+  color: #0A0A0A;
 }
 
 @media (max-width: 980px) {
@@ -354,20 +416,20 @@ nav {
   width: 40px;
   height: 40px;
   border-radius: var(--radius-circle);
-  background: var(--bg-secondary);
-  border: 1px solid var(--border);
+  background: transparent;
+  border: 1px solid color-mix(in srgb, var(--white) 40%, transparent);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: border-color 0.32s, transform 0.4s var(--ease-smooth);
-  color: var(--text-primary);
+  color: var(--white);
   padding: 0;
   flex-shrink: 0;
 }
 
 .theme-toggle:hover {
-  border-color: var(--blue);
+  border-color: var(--white);
   transform: rotate(20deg);
 }
 
@@ -391,8 +453,15 @@ nav {
 .hamburger span {
   width: 26px;
   height: 2px;
-  background-color: var(--text-primary);
+  background-color: var(--white);
   transition: transform 0.36s var(--ease-smooth), opacity 0.36s var(--ease-smooth), background-color 0.36s var(--ease-smooth);
+}
+nav:is(.scrolled, :has(.hamburger.active)) .hamburger span,
+.hamburger.active span {
+  background-color: var(--text-primary);
+}
+@media (hover: hover) and (pointer: fine) {
+  nav:hover .hamburger span { background-color: var(--text-primary); }
 }
 
 .hamburger.active span:nth-child(1) {
@@ -470,6 +539,16 @@ nav {
   padding: 1.25rem 0;
   width: 100%;
 }
+.mobile-menu-langwrap .lang-switch { border-color: var(--border); }
+.mobile-menu-langwrap .lang-switch button { color: var(--text-secondary); }
+.mobile-menu-langwrap .lang-switch button:hover { color: var(--text-primary); }
+.mobile-menu-langwrap .lang-switch button[aria-pressed="true"] {
+  background: var(--text-primary);
+  color: var(--bg-primary);
+}
+.mobile-menu-langwrap .lang-switch button[aria-pressed="true"]:hover {
+  color: var(--bg-primary);
+}
 
 .mobile-menu-footer {
   padding-top: 1.5rem;
@@ -485,6 +564,12 @@ nav {
   padding: 0.8rem 1.25rem;
   font-size: var(--fs-md)!important;
   text-decoration: none !important;
+  background: var(--text-primary) !important;
+  color: var(--bg-primary) !important;
+}
+.mobile-menu-footer .nav-cta:hover {
+  background: var(--blue) !important;
+  color: var(--white) !important;
 }
 
 .mobile-menu-links a:hover {

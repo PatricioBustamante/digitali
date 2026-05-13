@@ -80,6 +80,22 @@ document.addEventListener('keydown', (e) => {
   }
 });
 
+// ── NAV · estado "scrolled" para activar el fondo opaco ──
+(function navScrollState() {
+  const nav = document.querySelector('nav');
+  if (!nav) return;
+  let isScrolled = false;
+  const update = () => {
+    const shouldBeScrolled = window.scrollY > 4;
+    if (shouldBeScrolled !== isScrolled) {
+      isScrolled = shouldBeScrolled;
+      nav.classList.toggle('scrolled', isScrolled);
+    }
+  };
+  window.addEventListener('scroll', update, { passive: true });
+  update();
+})();
+
 // ── SCROLL HINT ──
 const scrollHint = document.getElementById('scrollHint');
 if (scrollHint) {
